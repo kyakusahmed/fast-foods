@@ -1,0 +1,153 @@
+
+* {box-sizing: border-box;}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(chicken-shawarma.jpg);
+  background-position: center center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  
+  
+}
+
+.header{
+    font-size: 13px;
+    float: left;
+    color: #008000;
+    padding-left: 10px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
+
+.topnav a {
+  float: right;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #008000;
+  color: white;
+}
+
+.topnav .search-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.topnav .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: rgb(183, 252, 183);
+}
+
+.login-page{
+    width: 360px;
+    padding: 5%;
+    margin: auto;
+    height: 100%;
+
+}
+.form{
+    position: relative;
+    z-index: 1;
+    background: #ffffff;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    margin-top: 60px;
+    border-radius: 10px;
+}
+.form input{
+    font-family: "roboto",sans-serif;
+    outline: 1;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    margin-left: 0px;
+}
+.form .button{
+    font-family: "roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #008000;
+    width: 100%;
+    padding-bottom: 5px;
+    color: #FFFFFF;
+    font-size: 15PX;
+    cursor: pointer;
+    border: 1px solid green;
+    margin: 40px;
+}
+
+.form .button:hover,.form button:active{
+    background-color: #43A047;
+}
+.form .message{
+    margin: 15px;
+    color: green;
+}
+
+@media screen and (max-width: 600px) {
+  .login-page, .SignUp, input[type=submit] {
+    width: auto;
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+    .topnav .search-container {
+      float: none;
+    }
+    .topnav a, .topnav input[type=text], .topnav .search-container button {
+  
+      display: block;
+      text-align: left;
+      width: 100%;
+      margin: 0;
+      padding: 14px;
+    }
+    .topnav input[type=text] {
+      border: 1px solid #ccc; 
+    }
+    .form input{
+      position: relative;
+    }
+   
+    
+   }
