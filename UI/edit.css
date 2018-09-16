@@ -1,0 +1,163 @@
+* {box-sizing: 
+  border-box;
+}
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(chicken-shawarma.jpg);
+  background-size: cover;
+  width: 100%;
+  height: auto;
+}
+
+.header{
+    font-size: 13px;
+    float: left;
+    color: #008000;
+    padding-left: 10px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
+.topnav a {
+  float: right;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 30px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #008000;
+  color: white;
+}
+
+.topnav .search-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.topnav .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: rgb(183, 252, 183);
+}
+
+.flex-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+  width: auto;
+
+}
+.orders{
+  border: 1px solid #fff;
+  width: 1200px;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.food {
+  margin: 10px 0;
+  justify-content: space-between;
+  padding: 10px;
+  color: #ffffff;
+}
+
+.image {
+  flex: 1;
+}
+.content1 .title {
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 5px;
+  font-size: 14px;
+
+}
+
+.content1 .title .price {
+  background: #008000;
+  color: #fff;
+  border-radius: 5px;
+  padding: 2px;
+  font-size: 12px;
+}
+.food .content1 .title .desc {
+  color: #ffffff;
+}
+
+.food .button .button {
+  margin-top: auto;
+  padding: 5px;
+  color: #d35400;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+  background: transparent;
+}
+
+.food .button .add {
+  background: #90ee90;
+  color: #fff;
+  border: 1px solid #90ee90;
+  border-radius: 5px;
+}
+
+.food .button .delete {
+  background: #ff0000;
+  border: 1px solid #ff0000;
+  color: #fff;
+  border-radius: 5px;
+  float: unset;
+ 
+}
+
+.food .date {
+  color: #ffffff;
+  font-size: 12px;
+}
+
+@media screen and (max-width: 620px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button, .orders {
+    
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+  
+}
+

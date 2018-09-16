@@ -42,7 +42,7 @@ body {
     outline: 0;
     background: #008000;
     width: 100%;
-    padding-bottom: 5px;
+    padding-bottom: 0px;
     color: #FFFFFF;
     font-size: 15PX;
     cursor: pointer;
@@ -58,8 +58,8 @@ body {
     color: green;
 }
 
-@media screen and (max-width: 600px) {
-    .login-page, .SignUp, input[type=submit] {
+@media screen and (max-width: 620px) {
+    .login-page, .SignUp, .input[type=submit] {
       width: auto;
       margin-top: 0;
     }

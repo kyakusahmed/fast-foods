@@ -4,7 +4,7 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(chicken-shawarma.jpg);
+  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(fff2.jpg);
   background-position: center center;
   background-size: cover;
   width: 100%;
@@ -72,11 +72,20 @@ body {
   background: rgb(183, 252, 183);
 }
 
+* {box-sizing: border-box;}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url(images.jpg) ;
+  background-size: cover;
+  filter: brightness(1);  
+}
+
 .login-page{
     width: 360px;
     padding: 5%;
     margin: auto;
-    height: 100%;
 
 }
 .form{
@@ -107,7 +116,7 @@ body {
     outline: 0;
     background: #008000;
     width: 100%;
-    padding-bottom: 5px;
+    padding-bottom: 0px;
     color: #FFFFFF;
     font-size: 15PX;
     cursor: pointer;
@@ -123,6 +132,14 @@ body {
     color: green;
 }
 
+@media screen and (max-width: 620px) {
+    .login-page, .SignUp, .input[type=submit] {
+      width: auto;
+      margin-top: 0;
+    }
+  }
+
+
 @media screen and (max-width: 600px) {
   .login-page, .SignUp, input[type=submit] {
     width: auto;
@@ -131,6 +148,7 @@ body {
 }
 
 @media screen and (max-width: 600px) {
+
     .topnav .search-container {
       float: none;
     }

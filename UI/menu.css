@@ -8,7 +8,7 @@ body {
 }
 
 .header{
-    font-size: 13px;
+    font-size: 10px;
     float: left;
     color: #008000;
     padding-left: 10px;
@@ -33,8 +33,7 @@ body {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 25px;
-}
+  font-size: 19px;}
 
 .topnav a:hover {
   background-color: #ddd;
@@ -77,46 +76,6 @@ body {
   min-height: 80vh;
   background-color: transparent;
 }
-
-.form {
-  width: 30%;
-  margin: auto;
-  box-sizing: border-box;
-}
-.form .signup {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-.form h4 {
-  text-align: center;
-}
-.form .field {
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-.form label {
-  font-size: 14px;
-  font-weight: 600;
-}
-.form .field input {
-  display: block;
-  padding: 10px;
-  width: 100%;
-  border: 1px solid #bdc3c7;
-  box-sizing: border-box;
-}
-.form .button {
-  margin-top: 20px;
-}
-.form .button .submit {
-  border: none;
-  padding: 10px;
-  background: #d35400;
-  font-weight: bold;
-  color: #fff;
-}
-
-
 
 .orders {
   width: 45%;
@@ -201,25 +160,22 @@ body {
 }
 
 .order-item .order-button .pending {
-  background: #90ee90 !important;
+  background: #008000;
   color: #fff;
   border: 1px solid #90ee90;
 }
 
 .order-item .order-button .completed {
-  background: #27ae60 !important;
-  border: 1px solid #27ae60;
+  background: #008000;
+  border: 1px solid #008000;
   color: #fff;
 }
 
 .order-item .order-button .declined {
-  background: #c0392b !important;
+  background: #c0392b;
   border: 1px solid #c0392b;
   color: #fff;
 }
-
-
-
 .order-item .date {
   color: #ffffff;
   font-size: 12px;
@@ -245,7 +201,7 @@ body {
   border-bottom: 3px dotted #ffffff;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 620px) {
   .topnav .search-container {
     float: none;
   }
@@ -275,8 +231,6 @@ body {
     width: auto;
     padding: 10px;
   }
-  
-
 }
 
 
