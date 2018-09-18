@@ -1,0 +1,4 @@
+kenv/*
+requirements.txt/*
+__pycache__/*
+.vscode/*
