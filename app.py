@@ -1,33 +1,24 @@
-
-
-
      
 class Order( ):
     def __init__(self, orders = []):
         self.orders = orders
        
         
-        
-        
-    def add_order(self, id, foodid, userid, date, status):
+    def add_order(self, foodid, userid, date, status):
 
-        order = {
-            "id" : id,
+        order1 = {
+            "id" : len(self.orders) + 1,
             "foodid" : foodid,
             "userid" : userid,
             "date" : date,
             "status" : status
         }
-        self.orders.append(order)
-        return self.orders
-     
-        
+        self.orders.append(order1)
+        return order1
+
     def get_order(self, id):
-        for order in self.orders:
-            if order['id'] == id:
-                return order
-            else:
-                return None
+        return self.search_order(id)
+
         
         
     def remove_order(self, id):
@@ -47,3 +38,15 @@ class Order( ):
         if order:
             return order
         return None
+
+
+    def update_status(self, id, status):
+        """Search for order."""
+        order = self.search_order(id)
+        """If exists, update status to new status."""
+        if order:
+            """Update the first item that matches in the order search list."""
+            order[0].update({"status": status})
+            return order
+        """Else return order not found."""
+        return "Order not found"        
