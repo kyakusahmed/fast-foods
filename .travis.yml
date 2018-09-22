@@ -3,6 +3,6 @@ python:
   - 3.6.0
 
 scripts:
-  C:\Users\uth\Documents\GitHub\fast-foods\order_tests.py
+  echo foo
 
   
