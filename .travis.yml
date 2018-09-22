@@ -1,4 +1,8 @@
 language: python
 python:
-  - 3.7
+  - 3.7.0
+
+scripts:
+  C:\Users\uth\Documents\GitHub\fast-foods\order_tests.py
+
   
