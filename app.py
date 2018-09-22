@@ -31,8 +31,6 @@ class Order( ):
     def return_all_orders(self):
         return self.orders
          
-    
-    
     def search_order(self, id):
         order = [order for order in self.orders if order['id'] == id]
         if order:
@@ -41,12 +39,8 @@ class Order( ):
 
 
     def update_status(self, id, status):
-        """Search for order."""
         order = self.search_order(id)
-        """If exists, update status to new status."""
         if order:
-            """Update the first item that matches in the order search list."""
             order[0].update({"status": status})
             return order
-        """Else return order not found."""
         return "Order not found"        
