@@ -32,7 +32,7 @@ class TestOrder(unittest.TestCase):
             "userid": "ahmed"
         }
         response = requests.post(base_url, params=data)
-        self.assertEqual(response.status_code, 201)
+        self.assertEqual(response.status_code, 200)
         """update status of a specific order"""
     def test_update_status(self):
         status = {"status":"pending"}
