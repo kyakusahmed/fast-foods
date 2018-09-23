@@ -33,17 +33,17 @@ class TestOrder(unittest.TestCase):
         }
         response = requests.post(base_url, params=data)
         self.assertEqual(response.status_code, 201)
-
+        """update status of a specific order"""
     def test_update_status(self):
         status = {"status":"pending"}
         response = requests.put(base_url +"/1", params=status)
         self.assertEqual(response.status_code, 200)
-        """expecting output "order not found that if the order doesnt exist"""
+        """expecting output "order not found" that if the order doesnt exist"""
     def test_order_not_found(self):
         """send get request to link"""
         response = requests.get(base_url + "/45")
         self.assertEqual(response.json().get('message'), "order not found") 
-
+        """update if order is not found"""
     def test_update_order_not_found(self):
         response = requests.put(base_url + "/120")
         self.assertEqual(response.json().get('orders'), "Order not found")
