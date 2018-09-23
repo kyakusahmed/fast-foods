@@ -2,7 +2,7 @@ import unittest
 import requests
 from app import Order
 """import base_url"""
-base_url = "http://127.0.0.1:5000/api/v1/orders"
+base_url = "http://127.0.0.1:8080/api/v1/orders"
 """testing Order class"""
 
 try:
@@ -53,6 +53,14 @@ class TestOrder(unittest.TestCase):
     def test_update_order_not_found(self):
         response = requests.put(base_url + "/120")
         self.assertEqual(response.json().get('orders'), "Order not found")
+
+
+
+
+if __name__ == "__main__":
+    unittest.main( )        
+
+
 
 
         
