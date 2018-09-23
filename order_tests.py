@@ -2,14 +2,8 @@ import unittest
 import requests
 from app import Order
 """import base_url"""
-base_url = "http://127.0.0.1:8080/api/v1/orders"
+base_url = "https://ahmad-fast-food-fast.herokuapp.com/api/v1/orders"
 """testing Order class"""
-
-try:
-    requests.get(base_url)
-except requests.exceptions.RequestException as e:
-    print('exception caught', e)
-
 class TestOrder(unittest.TestCase):
 
     def setUp(self):
