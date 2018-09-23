@@ -4,6 +4,8 @@ python:
   - 3.5
   - 3.4
 
+cache: pip  
+
 install:
   - pip install -r requirements.txt
   - pip install logilab-common
