@@ -10,6 +10,6 @@ install:
   - pip install --user -r requirements.txt
 
 script:
-  - py order_tests.py
+  - pytest order_tests
 
   
