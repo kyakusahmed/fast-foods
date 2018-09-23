@@ -7,6 +7,6 @@ install:
   - pip install -r requirements.txt
 
 script:
-  - order_tests/travis/run.sh
+  - pytest order_tests.py
 
   
