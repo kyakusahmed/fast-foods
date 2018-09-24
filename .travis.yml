@@ -9,6 +9,11 @@ install:
   - pip install -r requirements.txt
 
 script:
-  - pytest order_tests.py
+  - pytest --with-coverage --coverage-tests
+  - coverage
+
+
+after_succes:
+  - coveralls 
 
   
