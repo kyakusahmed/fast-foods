@@ -21,9 +21,23 @@ install a virtualenv and activate it,
 run pip install -r requirements.txt
 run python api.py
 
+heroku link
+[Get-all-orders](https://ahmad-fast-food-fast.herokuapp.com/api/v1/orders)
 
-______________TASK_____________________|_________URL___________|
-to get(GET) all orders                 |	  api/v1/orders      |
-to Post/add(POST) order                |	  api/v1/orders      |
-to get(GET) specific order             |    api/v1/orders/1    |
-Update(PUT) status of specifc order    |  api/v1/orders/foodid | 
+		
+		
+		
+		
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
