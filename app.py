@@ -31,8 +31,6 @@ class Order( ):
     def return_all_orders(self):
         return self.orders
          
-    
-    
     def search_order(self, id):
         order = [order for order in self.orders if order['id'] == id]
         if order:

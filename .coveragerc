@@ -1,0 +1,6 @@
+[report]
+
+omit =
+    */app.py
+
+show_missing = True
