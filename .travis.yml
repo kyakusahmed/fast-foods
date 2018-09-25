@@ -9,7 +9,7 @@ install:
   - pip install -r requirements.txt
 
 script:
-  - pytest --cov --coverage-test_order
+  - pytest --cov
   - coverage
 
 
