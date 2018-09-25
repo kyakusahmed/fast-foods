@@ -66,11 +66,9 @@ body {
   width: 50%;
   margin: 0 auto ;
 }
-
 .container .group{
   padding: 10px;
 }
-
 
 input, select, textarea {
     display: block;
