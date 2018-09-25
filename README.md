@@ -22,8 +22,8 @@ run pip install -r requirements.txt
 run python api.py
 
 
-Task----------------------------URL-----------
-Get all orders------------api/v1/orders	
-Post/add order-----------api/v1/orders	
-Get specific order--------api/v1/orders/1
-Update status of specifc order-----api/v1/orders/foodid
+
+to get(GET) all orders------------api/v1/orders, 	
+to Post/add(POST) order-----------api/v1/orders,	
+to get(GET) specific order--------api/v1/orders/1, and
+Update(PUT) status of specifc order-----api/v1/orders/foodid
