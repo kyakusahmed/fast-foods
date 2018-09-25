@@ -11,3 +11,19 @@ fast-foods web application for Andela boot-camp cycle 12
 
 [GH-PAGES](https://kyakusahmed.github.io/fast-foods/UI/)
 
+
+
+TO RUN THIS APP, 
+install Python 3.4/3.5/3.6, 
+Clone the my code,
+change directory(cd) to the directory,
+install a virtualenv and activate it,
+run pip install -r requirements.txt
+run python api.py
+
+
+Task----------------------------URL-----------
+Get all orders------------api/v1/orders	
+Post/add order-----------api/v1/orders	
+Get specific order--------api/v1/orders/1
+Update status of specifc order-----api/v1/orders/foodid
