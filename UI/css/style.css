@@ -6,7 +6,7 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   width: 100%;
-  height: auto;
+  min-height: 90vh;
 }
 
 .topnav {
@@ -16,9 +16,9 @@ body {
 }
 .topnav h1{
     float: left;
-    height: auto;
-    font-size: 20px;
-    padding: 5px;
+    margin: auto;
+    padding: 10px;
+    text-transform: capitalize;
 }
 
 .topnav a {
@@ -26,9 +26,9 @@ body {
   display: block;
   color: green;
   text-align: center;
-  padding:  20px;
+  padding:  22px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 16px;
 }
 .topnav a:hover {
   background-color: #ddd;
@@ -65,7 +65,9 @@ body {
   background: green;
 }
 
-
+.main-content{
+  min-height: 80vh;
+}
 
 .mySlides {
   display: none;

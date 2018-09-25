@@ -1,21 +1,18 @@
-
-
 * {box-sizing: border-box;}
 
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(bck.jpg);
+  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(images.jpg);
   background-image: cover;
-  width: 100%;
-  height: auto;
 }
 
-.header{
-    font-size: 13px;
-    float: left;
-    color: #008000;
-    padding-left: 10px;
+.topnav h1{
+  float: left;
+  margin: auto;
+  padding: 10px;
+  text-transform: capitalize;
+  color: green;
 }
 
 .topnav {
@@ -26,11 +23,11 @@ body {
 .topnav a {
   float: right;
   display: block;
-  color: black;
+  color: green;
   text-align: center;
-  padding: 14px 16px;
+  padding:  22px;
   text-decoration: none;
-  font-size: 29px;
+  font-size: 16px;
 }
 
 .topnav a:hover {
@@ -75,18 +72,40 @@ body {
   background-color: transparent;
 }
 
-.foods h4, .foods h6 {
+.orders {
+  width: 45%;
+  margin: auto;
+  box-sizing: border-box;
+  color: #ffffff;
+  float: left;
+  padding-left: 20px;
+
+
+}
+
+.orders2 {
+  width: 50%;
+  margin: auto;
+  box-sizing: border-box;
+  color: #ffffff;
+  float: right;
+  padding-right: 40px;
+
+
+}
+
+.orders h4, .orders h6 {
   text-align: center;
   color: white;
 }
-.foods .menu {
+.orders .menu {
   border-bottom: 1px double cream;
   padding: 10px;
   margin-bottom: 10px;
   background-color: #ffffff;
   color: #008000;
 }
-.food-item {
+.order-item {
   margin: 10px 0;
   display: flex;
   flex-direction: row;
@@ -95,11 +114,11 @@ body {
   border-bottom: 3px dotted #ffffff;
 }
 
-.food-image {
+.order-image {
   flex: 1;
 }
 
-.food-image img {
+.order-image img {
   margin: 0;
   height: 80px;
   width: 100px;
@@ -124,7 +143,7 @@ body {
   font-size: 12px;
 }
 
-.food-item .food-button .button {
+.order-item .order-button .button {
   display: inline-block;
   margin-top: auto;
   padding: 5px;
@@ -135,40 +154,54 @@ body {
   background: transparent;
 }
 
-.food-item .food-button .pending {
-  background: #90ee90 !important;
+.order-item .order-button .pending {
+  background: #008000;
   color: #fff;
   border: 1px solid #90ee90;
 }
 
-.food-item .food-button .completed {
-  background: #27ae60 !important;
-  border: 1px solid #27ae60;
+.order-item .order-button .completed {
+  background: #008000;
+  border: 1px solid #008000;
   color: #fff;
 }
 
-.food-item .food-button .declined {
-  background: #c0392b !important;
+.order-item .order-button .declined {
+  background: #c0392b;
   border: 1px solid #c0392b;
   color: #fff;
 }
-
-.food-item .date {
+.order-item .date {
   color: #ffffff;
   font-size: 12px;
 }
 
-.foods2 h4, .foods h6 {
+.orders2 h4, .orders h6 {
   text-align: center;
   color: white;
 }
+.orders2 .menu {
+  border-bottom: 1px double cream;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #ffffff;
+  color: #008000;
+}
+.food-item {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  border-bottom: 3px dotted #ffffff;
+}
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 620px) {
   .topnav .search-container {
     float: none;
   }
   .topnav a, .topnav input[type=text], .topnav .search-container button {
-
+    
     display: block;
     text-align: left;
     width: 100%;
@@ -178,18 +211,22 @@ body {
   .topnav input[type=text] {
     border: 1px solid #ccc; 
   }
-  .foods, .foods2, .foods .button {
+  .orders, .orders2, .orders .button {
     display: block;
+
+  }
+  .orders{
+    float: none;
+    margin: 0px;
+    width: auto;
+    padding: 10px;
+  }
+  .orders2{
+    float: left;
+    width: auto;
+    padding: 10px;
   }
 }
-.foods{
-  float: none;
-  margin: 0px;
-  width: auto;
-  padding: 10px;
-}
-
-
 
 
 

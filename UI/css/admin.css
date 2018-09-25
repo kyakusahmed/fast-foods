@@ -1,39 +1,38 @@
+
+
 * {box-sizing: border-box;}
 
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(images.jpg);
+  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(chicken-shawarma.jpg);
   background-image: cover;
+  background-size: contain;
+  width: 100%;
+  min-height: 90vh;
 }
-
-.header{
-    font-size: 10px;
-    float: left;
-    color: #008000;
-    padding-left: 10px;
+.topnav h1{
+  float: left;
+  margin: auto;
+  padding: 10px;
+  text-transform: capitalize;
+  color: #008000;
 }
 
 .topnav {
   overflow: hidden;
   background-color: #e9e9e9;
 }
-.topnav .h1{
-    float: center;
-    height: auto;
-    font-size: 5px;
-    padding: 5px;
-    color: #008000;
-}
 
 .topnav a {
   float: right;
   display: block;
-  color: black;
+  color: green;
   text-align: center;
-  padding: 14px 16px;
+  padding:  22px;
   text-decoration: none;
-  font-size: 19px;}
+  font-size: 16px;
+}
 
 .topnav a:hover {
   background-color: #ddd;
@@ -71,46 +70,29 @@ body {
   background: rgb(183, 252, 183);
 }
 
+.main-content{
+  min-height: 80vh;
+}
+
 .content {
   margin-bottom: 20px;
   min-height: 80vh;
   background-color: transparent;
+  color: white;
 }
 
-.orders {
-  width: 45%;
-  margin: auto;
-  box-sizing: border-box;
-  color: #ffffff;
-  float: left;
-  padding-left: 20px;
-
-
-}
-
-.orders2 {
-  width: 50%;
-  margin: auto;
-  box-sizing: border-box;
-  color: #ffffff;
-  float: right;
-  padding-right: 40px;
-
-
-}
-
-.orders h4, .orders h6 {
+.foods h4, .foods h6 {
   text-align: center;
   color: white;
 }
-.orders .menu {
+.foods .menu {
   border-bottom: 1px double cream;
   padding: 10px;
   margin-bottom: 10px;
   background-color: #ffffff;
   color: #008000;
 }
-.order-item {
+.food-item {
   margin: 10px 0;
   display: flex;
   flex-direction: row;
@@ -119,11 +101,11 @@ body {
   border-bottom: 3px dotted #ffffff;
 }
 
-.order-image {
+.food-image {
   flex: 1;
 }
 
-.order-image img {
+.food-image img {
   margin: 0;
   height: 80px;
   width: 100px;
@@ -148,7 +130,7 @@ body {
   font-size: 12px;
 }
 
-.order-item .order-button .button {
+.food-item .food-button .button {
   display: inline-block;
   margin-top: auto;
   padding: 5px;
@@ -159,54 +141,40 @@ body {
   background: transparent;
 }
 
-.order-item .order-button .pending {
-  background: #008000;
+.food-item .food-button .pending {
+  background: #90ee90 !important;
   color: #fff;
   border: 1px solid #90ee90;
 }
 
-.order-item .order-button .completed {
-  background: #008000;
-  border: 1px solid #008000;
+.food-item .food-button .completed {
+  background: #27ae60 !important;
+  border: 1px solid #27ae60;
   color: #fff;
 }
 
-.order-item .order-button .declined {
-  background: #c0392b;
+.food-item .food-button .declined {
+  background: #c0392b !important;
   border: 1px solid #c0392b;
   color: #fff;
 }
-.order-item .date {
+
+.food-item .date {
   color: #ffffff;
   font-size: 12px;
 }
 
-.orders2 h4, .orders h6 {
+.foods2 h4, .foods h6 {
   text-align: center;
   color: white;
 }
-.orders2 .menu {
-  border-bottom: 1px double cream;
-  padding: 10px;
-  margin-bottom: 10px;
-  background-color: #ffffff;
-  color: #008000;
-}
-.food-item {
-  margin: 10px 0;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  border-bottom: 3px dotted #ffffff;
-}
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 600px) {
   .topnav .search-container {
     float: none;
   }
   .topnav a, .topnav input[type=text], .topnav .search-container button {
-    
+
     display: block;
     text-align: left;
     width: 100%;
@@ -216,22 +184,18 @@ body {
   .topnav input[type=text] {
     border: 1px solid #ccc; 
   }
-  .orders, .orders2, .orders .button {
+  .foods, .foods2, .foods .button {
     display: block;
-
-  }
-  .orders{
-    float: none;
-    margin: 0px;
-    width: auto;
-    padding: 10px;
-  }
-  .orders2{
-    float: left;
-    width: auto;
-    padding: 10px;
   }
 }
+.foods{
+  float: none;
+  margin: 0px;
+  width: auto;
+  padding: 10px;
+}
+
+
 
 
 

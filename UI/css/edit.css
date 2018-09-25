@@ -7,19 +7,21 @@ body {
   background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(chicken-shawarma.jpg);
   background-size: cover;
   width: 100%;
-  height: auto;
+  min-height: 80vh;
 }
 
-.header{
-    font-size: 13px;
-    float: left;
-    color: #008000;
-    padding-left: 10px;
+.topnav h1{
+  float: left;
+  margin: auto;
+  padding: 10px;
+  text-transform: capitalize;
+  color: #008000;
 }
 
 .topnav {
   overflow: hidden;
   background-color: #e9e9e9;
+  padding: 0 20px;
 }
 
 .topnav a {
@@ -27,9 +29,9 @@ body {
   display: block;
   color: black;
   text-align: center;
-  padding: 14px 16px;
+  padding: 22px 16px;
   text-decoration: none;
-  font-size: 30px;
+  font-size: 16px;
 }
 
 .topnav a:hover {
@@ -66,6 +68,19 @@ body {
 
 .topnav .search-container button:hover {
   background: rgb(183, 252, 183);
+}
+.menu-button {
+  padding: 20px;
+}
+
+.menu-button .add{
+  margin-left: 70px;
+  background: #90ee90;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  margin-top: 20px;
+
 }
 
 .flex-container{
@@ -112,17 +127,18 @@ body {
   color: #ffffff;
 }
 
-.food .button .button {
+.food .button  {
   margin-top: auto;
   padding: 5px;
   color: #d35400;
   font-weight: bold;
   font-size: 12px;
   cursor: pointer;
+  display: inline-block;
   background: transparent;
 }
 
-.food .button .add {
+.food .button .edit {
   background: #90ee90;
   color: #fff;
   border: 1px solid #90ee90;
