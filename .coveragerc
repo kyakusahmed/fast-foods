@@ -2,6 +2,6 @@
 
 omit =
     */app.py
-    *//home/travis/virtualenv/*
+    *//home/travis/*
 
 show_missing = True
