@@ -18,8 +18,9 @@ install Python 3.4/3.5/3.6,
 Clone the my code,
 change directory(cd) to the directory,
 install a virtualenv and activate it,
-run pip install -r requirements.txt
-run python api.py
+run pip install -r requirements.txt, 
+Run python api.py
+
 
 heroku link
 [Get-all-orders](https://ahmad-fast-food-fast.herokuapp.com/api/v1/orders)
