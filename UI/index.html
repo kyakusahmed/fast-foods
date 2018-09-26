@@ -11,7 +11,6 @@
 
 <div class="topnav">
   <h1>chucks fast foods</h1>
-  
   <a href="SignUp.html">SignUp</a>
   <a href="SignIn.html">SignIn</a>  
   <a href="contact.html">ContactUs</a>
@@ -26,9 +25,6 @@
   </div>
 </div>
 <div class="main-content">
-
-<h2></h2>
-<p></p>
 
 <div class="slideshow-container">
 
@@ -51,7 +47,7 @@
 </div>
 
 </div>
-<br>
+
 
 <div style="text-align:center">
   <span class="dot"></span> 
@@ -59,35 +55,16 @@
   <span class="dot"></span> 
 </div>
 
-
-
+<div class="details">
+  <h2>Fast-Food-Fast</h2>
+  <p>Food delivery service app for a restaurant</p>
+</div>
 
 </div>
 <div class = "footer">
 <p>copy rights 2018</p>
 </div>
 
-<script>
-var slideIndex = 0;
-showSlides();
-
-function showSlides() {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    var dots = document.getElementsByClassName("dot");
-    for (i = 0; i < slides.length; i++) {
-       slides[i].style.display = "none";  
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}    
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex-1].style.display = "block";  
-    dots[slideIndex-1].className += " active";
-    setTimeout(showSlides, 5000); // Change image every 2 seconds
-}
-</script>
 
 </body>
 </html>
