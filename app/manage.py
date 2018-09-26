@@ -5,7 +5,7 @@ class Order( ):
         self.orders = orders
        
         
-    def add_order(self, foodid, userid, date, status):
+    def add_order(self, foodid, userid, status):
 
         order1 = {
             "id" : len(self.orders) + 1,

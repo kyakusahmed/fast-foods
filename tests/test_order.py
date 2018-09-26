@@ -1,17 +1,23 @@
 import unittest
 import requests
-from app import Order
+
 """import base_url"""
 """import base_url"""
-base_url = "https://ahmad-fast-food-fast.herokuapp.com/api/v1/orders"
+# base_url = "https://ahmad-fast-food-fast.herokuapp.com/api/v1/orders"
+base_url = "http://127.0.0.1:8080/api/v1/orders"
 """testing Order class"""
 class TestOrder(unittest.TestCase):
 
     def setUp(self):
-        self.order = Order()
-
-    def test_Order_class(self):
-        self.assertIsInstance(self.order, Order)
+        self.order = [
+            {
+                "id": 1,
+                "foodid": 24,
+                "userid": 6,
+                "date": "12/02/2018",
+                "status": "pending"
+            }
+        ]
 
     def test_get_orders(self):
         """Send GET request to the link."""
@@ -27,7 +33,6 @@ class TestOrder(unittest.TestCase):
         """post the specific data to the orders list"""
     def test_add_order(self):
         data = {
-            "date": "22/12/2010",
             "foodid": 34,
             "status": "pending",
             "userid": "ahmed"
@@ -49,7 +54,8 @@ class TestOrder(unittest.TestCase):
         response = requests.put(base_url + "/120")
         self.assertEqual(response.json().get('orders'), "Order not found")
 
-
+    def tearDown(self):
+        self.order = []
 
 
 if __name__ == "__main__":

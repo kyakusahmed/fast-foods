@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-from app import Order
+from app.manage import Order
 
 app2 = Flask(__name__)
 order = Order()
@@ -19,16 +19,14 @@ def get_order(id):
 def add_one():
     if not request.args.get("foodid"):
         return jsonify({"error": "Food is required"})
-    return jsonify({"orders" : order.add_order(
-        request.args.get("foodid"),
-        request.args.get("userid"),
-        request.args.get("date"),
-        request.args.get("status")
-        )}), 201
+    return jsonify({"orders": order.add_order(
+                request.args.get("foodid"),
+                request.args.get("userid"),
+                request.args.get("status")
+            )}), 201
 
 @app2.route('/api/v1/orders/<int:id>', methods=['PUT'])
 def update_status(id):
     return jsonify({"orders" : order.update_status(id, request.args.get("status"))})
 
-if __name__ == "__main__":
-    app2.run(debug=True, port=8080)
+    
