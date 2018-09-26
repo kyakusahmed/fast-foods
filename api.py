@@ -5,7 +5,7 @@ app2 = Flask(__name__)
 order = Order()
 
 @app2.route('/api/v1/orders', methods=['GET'])
-def returnALL():
+def return_all_orders():
     return jsonify({"orders" : order.return_all_orders()}), 200
 
 @app2.route('/api/v1/orders/<int:id>', methods=['GET'])
@@ -16,7 +16,7 @@ def get_order(id):
     return jsonify({"message" : "order not found"}), 200
 
 @app2.route('/api/v1/orders', methods=['POST'])
-def addone():
+def add_one():
     if not request.args.get("foodid"):
         return jsonify({"error": "Food is required"})
     return jsonify({"orders" : order.add_order(
