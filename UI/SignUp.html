@@ -11,16 +11,26 @@
 
 <div class = "SignUp">
 <div class = "form">
-<form class = "register-form">
-<input type = "text" placeholder = "username"/>
-<input type = "text" placeholder = "email"/>
-<input type = "text" placeholder = "password"/>
-<a href = "SignIn.html" class = "button">SignUp</a>
+<form action="SignIn.html" class="register-form">
+<input type="text" placeholder="username" required />
+<input type="email" placeholder= "email" required>
+<input type="password" placeholder="password" required>
+<button type="submit" class="button">Sign Up</button>
 <P class = "message">Already registered?<a href = "SignIn.html">SignIn</a></p>
 </form>
 
 </div>
 </div>
+
+<script>
+function validateForm() {
+    var x = document.forms["Myform"]["username"].value;
+    if (x == "") {
+        alert("Name must be filled out");
+        return false;
+    }
+}
+</script>
 
 </body>
 </html>
