@@ -2,9 +2,8 @@ import unittest
 import requests
 
 """import base_url"""
-"""import base_url"""
-# base_url = "https://ahmad-fast-food-fast.herokuapp.com/api/v1/orders"
-base_url = "http://127.0.0.1:8080/api/v1/orders"
+base_url = "https://ahmad-fast-food-fast.herokuapp.com/api/v1/orders"
+
 """testing Order class"""
 class TestOrder(unittest.TestCase):
 
