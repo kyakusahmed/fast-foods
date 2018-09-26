@@ -1,4 +1,5 @@
-     
+from datetime import datetime
+
 class Order( ):
     def __init__(self, orders = []):
         self.orders = orders
@@ -10,7 +11,7 @@ class Order( ):
             "id" : len(self.orders) + 1,
             "foodid" : foodid,
             "userid" : userid,
-            "date" : date,
+            "date" : str(datetime.now()),
             "status" : status
         }
         self.orders.append(order1)
@@ -19,7 +20,6 @@ class Order( ):
     def get_order(self, id):
         return self.search_order(id)
 
-        
         
     def remove_order(self, id):
         for order in self.orders:
