@@ -49,12 +49,12 @@ body {
     outline: 0;
     background: #008000;
     width: 100%;
-    padding-bottom: 0px;
+    padding: 10px;
     color: #FFFFFF;
     font-size: 15PX;
     cursor: pointer;
     border: 1px solid green;
-    margin: 40px;
+    margin-top: 10px;
 }
 
 .form .button:hover,.form button:active{

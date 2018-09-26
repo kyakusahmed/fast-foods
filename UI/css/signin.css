@@ -27,7 +27,7 @@ body {
     margin-top: 120px;
     border-radius: 10px;
 }
-.form input{
+.login-form input{
     font-family: "roboto",sans-serif;
     outline: 1;
     background: #f2f2f2;
@@ -38,18 +38,18 @@ body {
     box-sizing: border-box;
     margin-left: 0px;
 }
-.form .button{
+.login-form .button{
     font-family: "roboto", sans-serif;
     text-transform: uppercase;
     outline: 0;
     background: #008000;
     width: 100%;
-    padding-bottom: 0px;
+    padding: 10px;
     color: #FFFFFF;
     font-size: 15PX;
     cursor: pointer;
     border: 1px solid green;
-    margin: 40px;
+    margin-top: 10px;
 }
 
 .form .button:hover,.form button:active{
