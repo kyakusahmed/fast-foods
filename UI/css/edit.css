@@ -70,8 +70,7 @@ body {
   background: rgb(183, 252, 183);
 }
 
-
-.food .button .add{
+.food .button1 .add{
   background: #90ee90;
   border: 1px solid #008000;
   color: #fff;
@@ -173,3 +172,29 @@ body {
   
 }
 
+.add-food {
+  background-color:#ccc;
+  padding: 10px;
+}
+.add-food .input-field {
+  margin-top: 5px;
+}
+.add-food .input-field label {
+  display: block;
+}
+.add-food .input-field input, .add-food .input-field textarea {
+  border: 1px solid black;
+  padding: 6px;
+  width: 100%;
+}
+
+.add-food .submit-button {
+  margin:  10px auto;
+}
+
+.add-food .submit-button .button {
+  padding: 10px;
+  background: #008000;
+  color: #fff;
+  border: none;
+}
