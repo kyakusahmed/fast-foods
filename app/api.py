@@ -18,8 +18,13 @@ def get_order(id):
 @app2.route('/api/v1/orders', methods=['POST'])
 def add_one():
     data = request.get_json()
-    # if not request.args.get("foodid"):
-    #     return jsonify({"error": "Food is required"})
+    if not data.get("foodid"):
+        return jsonify({"error": "foodid is required"})
+    elif not data.get("userid"):
+        return jsonify({"error": "userid is required"})
+    elif not data.get('status'):
+        return jsonify({"error": "status is required"})
+
     return jsonify({"orders": order.add_order(
                 data["foodid"],
                 data["userid"],
@@ -29,6 +34,8 @@ def add_one():
 @app2.route('/api/v1/orders/<int:id>', methods=['PUT'])
 def update_status(id):
     get_input = request.get_json()
+    if not get_input.get("status"):
+        return jsonify({"error" : "status is required"})
     return jsonify({"orders" : order.update_status(id, get_input["status"])})
 
     
