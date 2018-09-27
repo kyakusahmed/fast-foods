@@ -14,9 +14,9 @@ omit =
     */mimetypes.py 
     */netrc.py
     */stringprep.py 
-    */tests/__init__.py  
-    */app/models.py 
+    */tests/__init__.py 
     */app/__init__.py 
+    */app/manage.py
     */env/*
     *//home/travis/virtualenv/*
     */virtualenv/*
@@ -35,5 +35,16 @@ omit =
     */numbers.py
     */uuid.py
     */app.py 
-    
+    */contextvars.py
+    */html/*__init__.py
+    */app/api.py
+    */app/manage.py                   28      4    86%   25-28
+    */click/*
+    */colorama/*
+    */flask/*
+    */itsdangerous.py
+    */jinja2/*
+    */markupsafe/*
+    */werkzeug/*
+
 show_missing = True

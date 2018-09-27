@@ -1,62 +1,60 @@
 import unittest
-import requests
+import json
+from app.api import app2
 
-"""import base_url"""
-base_url = "https://ahmad-fast-food-fast.herokuapp.com/api/v1/orders"
-
-"""testing Order class"""
-class TestOrder(unittest.TestCase):
+class OrderTest(unittest.TestCase):
 
     def setUp(self):
-        self.order = [
-            {
-                "id": 1,
-                "foodid": 24,
-                "userid": 6,
-                "date": "12/02/2018",
-                "status": "pending"
-            }
-        ]
+        self.app = app2.test_client()
+        self.app.testing = True
+        self.order = {"foodid": 25, "userid": 5, "status": "pending"}
 
-    def test_get_orders(self):
-        """Send GET request to the link."""
-        response = requests.get(base_url)
-        self.assertIsInstance(response.json().get('orders'), list)
-        self.assertEqual(response.status_code, 200)
-      
-    def test_get_order(self):
-        response = requests.get(base_url + "/1")
-        """Am expecting order key to be an instance of a list from the request response."""
-        self.assertIsInstance(response.json().get('order'), list)
-        self.assertEqual(response.status_code, 200)
-        """post the specific data to the orders list"""
+    def test_get_all_orders(self):
+        response = self.app.get("/api/v1/orders")
+        data = json.loads(response.get_data(as_text=True))
+        assert response.status_code == 200
+        self.assertIsInstance(data['orders'], list)
+    
     def test_add_order(self):
-        data = {
-            "foodid": 34,
-            "status": "pending",
-            "userid": "ahmed"
-        }
-        response = requests.post(base_url, params=data)
-        self.assertEqual(response.json().get('orders')['userid'], "ahmed")
-        """update status of a specific order"""
+        response = self.app.post("/api/v1/orders", json=self.order)
+        data = json.loads(response.get_data(as_text=True))
+        self.assertEqual(response.status_code, 201)
+        assert data['orders']['foodid'] == 25
+        assert data['orders']['userid'] == 5
+        assert data['orders']['status'] == "pending"
+
+    def test_get_order(self):
+        self.app.post('/api/v1/orders', json=self.order)
+        response = self.app.get('/api/v1/orders/1')
+        data = json.loads(response.get_data(as_text=True))
+        assert data['order'][0]['foodid'] == 25
+        assert data['order'][0]['userid'] == 5
+        assert data['order'][0]['status'] == "pending"
+
     def test_update_status(self):
-        status = {"status":"pending"}
-        response = requests.put(base_url +"/1", params=status)
-        self.assertEqual(response.status_code, 200)
-        """expecting output "order not found" that if the order doesnt exist"""
+        self.app.post('/api/v1/orders', json=self.order)
+        response =self.app.put('/api/v1/orders/1', json={"status": "completed"})
+        data = json.loads(response.get_data(as_text=True))
+        assert data['orders'][0]['status'] == "completed"
+      
     def test_order_not_found(self):
-        """send get request to link"""
-        response = requests.get(base_url + "/45")
-        self.assertEqual(response.json().get('message'), "order not found") 
-        """update if order is not found"""
-    def test_update_order_not_found(self):
-        response = requests.put(base_url + "/120")
-        self.assertEqual(response.json().get('orders'), "Order not found")
+        response =self.app.get('/api/v1/orders/12345')
+        data = json.loads(response.get_data(as_text=True))
+        assert data["message"] == "order not found"
 
-    def tearDown(self):
-        self.order = []
+    def test_update_status_not_found(self):
+        response = self.app.put('/api/v1/orders/4676', json={"status": "completed"})
+        data = json.loads(response.get_data(as_text=True))
+        assert data["orders"] == "Order not found"
 
 
-if __name__ == "__main__":
-    unittest.main( )        
+        
+
+
+    
+
+    
+
+
+
 
