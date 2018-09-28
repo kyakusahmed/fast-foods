@@ -16,7 +16,7 @@ Clone the my code,
 change directory(cd) to the directory,
 install a virtualenv and activate it,
 run pip install -r requirements.txt, 
-Run python api.py
+Run python run.py
 
 heroku link
 [Get-all-orders](https://ahmad-fast-food-fast.herokuapp.com/api/v1/orders)
