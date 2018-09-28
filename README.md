@@ -4,7 +4,7 @@
 
 ## Fast-Food-Fast Application.
 
-fast-foods web application for Andela boot-camp cycle 12 
+Food delivery service app for a restaurant 
 
 [GH-PAGES](https://kyakusahmed.github.io/fast-foods/UI/)
 
