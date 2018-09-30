@@ -1,3 +1,7 @@
-kenv
-.vscode
-__pycache__
+kenv/*
+__pycache__/*
+.vscode/*
+UI/Thumbs.db
+app/__pycache__/*
+tests/__pycache__/*
+
