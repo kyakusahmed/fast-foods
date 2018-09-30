@@ -24,7 +24,6 @@ def add_one():
         return jsonify({"error": "userid is required"}), 200
     elif not data.get('status'):
         return jsonify({"error": "status is required"}), 200
-
     return jsonify({"orders": order.add_order(
                 data["food_name"],
                 data["userid"],

@@ -38,13 +38,11 @@ class OrderTest(unittest.TestCase):
         data = json.loads(response.get_data(as_text=True))
         assert data['orders'][0]['status'] == "completed"
    
-      
     def test_order_not_found(self):
         response =self.app.get('/api/v1/orders/12345')
         data = json.loads(response.get_data(as_text=True))
         assert data["message"] == "order not found"
         assert response.status_code == 404
-
 
     def test_update_status_not_found(self):
         response = self.app.put('/api/v1/orders/4676', json={"status": "completed"})
