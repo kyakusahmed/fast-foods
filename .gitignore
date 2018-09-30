@@ -4,3 +4,4 @@ __pycache__/*
 UI/Thumbs.db
 app/__pycache__/*
 tests/__pycache__/*
+

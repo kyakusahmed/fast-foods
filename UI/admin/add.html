@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>fAST FOODS</title>
+<link rel="stylesheet" type="text/css" href="../css/edit.css">
+<meta charset="utf-8"> 
+<META name="keywords" lang="en-us" content="fast-foods">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div class="topnav">
+  <div class = "header">
+    <h1>chucks fast foods</h1>
+      </div>
+
+  <a href= "Admin-In.html">signout</a>
+  <a href= "#" class = "active">Foods</a>  
+  <a href= "admin.html">Admin</a>
+  
+  <div class="search-container">
+    <form action="/action">
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</div>
+
+
+<div class="flex-container">
+  <form action="admin.html" class="add-food">
+
+    <div class="input-field">
+      <label>Food title </label>
+      <input type="text" name="title" required>
+    </div>   
+
+    <div class="input-field">
+      <label>Food price </label>
+      <input type="number" name="price" min="0" required>
+    </div> 
+
+    <div class="input-field">
+      <label>Food description</label>
+      <textarea name="description" rows="5" required></textarea>
+    </div>     
+
+    <div class="input-field">
+      <label>select image</label>
+      <input type="file" name="image" required>
+    </div> 
+
+    <div class="submit-button">
+      <button type="submit" class="button">Save</button>
+    </div>  
+
+  </form>
+    
+</div>
+</div>
+</body>
+</html>
