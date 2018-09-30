@@ -12,21 +12,21 @@ def return_all_orders():
 def get_order(id):
     search_order = order.get_order(id)
     if search_order:
-        return jsonify({"order":search_order}) 
-    return jsonify({"message" : "order not found"}), 200
+        return jsonify({"order":search_order}), 200
+    return jsonify({"message" : "order not found"}), 404
 
 @app2.route('/api/v1/orders', methods=['POST'])
 def add_one():
     data = request.get_json()
-    if not data.get("foodid"):
-        return jsonify({"error": "foodid is required"})
+    if not data.get("food_name"):
+        return jsonify({"error": "food_name is required"}), 200
     elif not data.get("userid"):
-        return jsonify({"error": "userid is required"})
+        return jsonify({"error": "userid is required"}), 200
     elif not data.get('status'):
-        return jsonify({"error": "status is required"})
+        return jsonify({"error": "status is required"}), 200
 
     return jsonify({"orders": order.add_order(
-                data["foodid"],
+                data["food_name"],
                 data["userid"],
                 data["status"]
             )}), 201
@@ -35,7 +35,7 @@ def add_one():
 def update_status(id):
     get_input = request.get_json()
     if not get_input.get("status"):
-        return jsonify({"error" : "status is required"})
-    return jsonify({"orders" : order.update_status(id, get_input["status"])})
+        return jsonify({"error" : "status is required"}), 200
+    return jsonify({"orders" : order.update_status(id, get_input["status"])}), 200
 
     
