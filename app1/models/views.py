@@ -50,6 +50,9 @@ def partially_protected():
         return jsonify(loggeed_in_as='anonymous user'), 200
 
 
+@app2.route('/api/v1/')        
+
+
 if __name__ == "__main__":
     app2.run(debug=True, port=8080)
 
