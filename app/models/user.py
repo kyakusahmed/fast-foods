@@ -1,53 +1,63 @@
 from app.models.connect import DatabaseConnection
-from datetime import datetime
-from flask import jsonify
+import datetime
 
-class Admin(DatabaseConnection):
+
+class User(DatabaseConnection):
 
     def __init__(self):
         super().__init__()
 
-    def get_all_orders(self):
-        command = """
-        select row_to_json(row) from (SELECT * FROM orders) row 
-        """
-        self.cursor.execute(command)
-        return self.cursor.fetchall()
-
-    def get_one_order(self, orders_id):
-        command = """
-        SELECT * FROM ORDERS WHERE orders_id = {}
-        """.format(orders_id)  
-        self.cursor.execute(command)
-        return self.cursor.fetchone() 
-
-
-
-    def update_order_status(self, orders_id, status):
-        command = "UPDATE orders SET status = '%s' WHERE orders_id = '%s'" % (status, orders_id)
-        self.cursor.execute(command)
-        return "status updated"
-        
-
-
-    def add_meal(self, food_title, description, price, status):
+    def register_user(self, first_name, last_name, email, password,role):
         try:
             command = """
-            INSERT INTO MENU (food_title, description, price, status) VALUES('{}', '{}', '{}', '{}')
-            """.format(food_title, description, price, status)
+            INSERT INTO USERS (first_name, last_name, email, password, role) VALUES('{}','{}','{}','{}','{}')
+            """.format( first_name, last_name, email, password, role)
             self.cursor.execute(command)
-            return "Data Inserted Successfully"
+            return "user registered successfully"
         except Exception as ex:
             return "failed {}".format(ex)
 
-    def get_menu(self):
+    def login_user(self, email, password):
+        command = """
+        SELECT * FROM users WHERE email= '{}' AND password = '{}'
+        """.format(email, password)
+        self.cursor.execute(command)
+        user = self.cursor.fetchone()
+        return user
+
+    def view_user_history(self, user_id):
+        command = """
+        SELECT * from orders WHERE user_id = {}
+        """.format(user_id)
+        self.cursor.execute(command)
+        data = self.cursor.fetchall()  
+        return data      
+
+    def delete_user(self, userd_id):
         try:
-            command= "SELECT * FROM MENU"
+            command = """
+            DELETE from users WHERE user_id = {}
+            """.format(userd_id)
             self.cursor.execute(command)
-            menu = self.cursor.fetchall()
-            return menu
+            return  "data deleted"
         except Exception as ex:
             return "failed {}".format(ex)
 
+    def place_order(self, user_id, quantity, location, status, created_at):
+            command = """
+            INSERT INTO orders (user_id, quantity, location, status, created_at)  VALUES('{}', '{}', '{}', '{}','{}')
+            """.format(user_id, quantity, location, status, created_at)
+            self.cursor.execute(command)
+            return "order is placed"
 
+    def find_user(self, user_id):
+        command = """
+        SELECT * from users WHERE user_id ={}
+        """.format(user_id)
+        self.cursor.execute(command)
+        data = self.cursor.fetchone()
+        return data
 
+    
+        
+    

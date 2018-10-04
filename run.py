@@ -1,5 +1,3 @@
-
-
 from app.models.views import app2
 from app.models.tables import Migration
 

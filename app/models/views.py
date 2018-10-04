@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
-from app.models.user import User
-from app.models.admin import Admin
+from .user import User
+from .admin import Admin
+
 from flask_jwt_extended import (JWTManager, jwt_required, create_access_token,get_jwt_identity)
 
 
