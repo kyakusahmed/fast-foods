@@ -13,28 +13,19 @@ admin = Admin()
 
 
 
-@app2.route('/api/v1/users/orders', methods=['POST'])
-@jwt_required
-def place_order():
-    data = request.get_json()
-    if not data.get("user_id"):
-        return jsonify({"error": "user_id is required"}), 200
-    elif not data.get("quantity"):
-        return jsonify({"error": "quantity is required"}), 200
-    elif not data.get('location'):
-        return jsonify({"error": "location is required"}), 200
-    elif not data.get('status'):
-        return jsonify({"error":"status is required"})
-    elif not data.get('created_at'):
-        return jsonify({"error":"created_at is required"})
-    return jsonify({"orders": user.place_order(
-                data["user_id"],
-                data["quantity"],
-                data["location"],
-                data["status"],
-                data["created_at"]
-                )}), 201    
 
+@app2.route('/api/v1/orders', methods=["GET"])
+@jwt_required
+def get_orders():
+    current_user = get_jwt_identity()
+    if current_user[5] != "admin":
+        return jsonify({"msg":"unauthorised access"}), 401
+    else:    
+        return jsonify({"orders": admin.get_all_orders()})
+
+
+
+                       
 
 
 
