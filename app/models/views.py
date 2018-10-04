@@ -14,19 +14,16 @@ admin = Admin()
 
 
 
-@app2.route('/api/v1/orders/<int:orders_id>', methods=["PUT"])
+
+
+@app2.route('/api/v1/menu', methods=["GET"])
 @jwt_required
-def update_status(orders_id):
+def get_menu():
     current_user = get_jwt_identity()
     if current_user[5] != "admin":
         return jsonify({"msg":"unauthorised access"}), 401
-    else:
-        get_input = request.get_json()
-        if not get_input.get("status"):
-            return jsonify({"error" : "status is required"}), 200
-        return jsonify({"orders" : admin.update_order_status(orders_id, get_input["status"])}), 200
-
-
+    else:    
+        return jsonify({"menu": admin.get_menu()})
 
 
 
