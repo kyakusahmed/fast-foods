@@ -28,10 +28,6 @@ def registration():
 
     if len(data["password"]) < 5:
         return jsonify({"msg":"passowrd is too short"}), 406
-           
-    
-    
-            
     
     user_role = data['role']
     user_roles = ['admin', 'user']
