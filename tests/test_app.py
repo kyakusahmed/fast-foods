@@ -57,7 +57,6 @@ class AdminTest(unittest.TestCase):
         assert response.status_code == 401
         self.assertEqual(data['msg'], "Missing Authorization Header")
 
-
     def test_update_status_without_token(self):
         response =self.app1.put('/api/v1/orders/1', json={"status": "completed"})
         data = json.loads(response.get_data(as_text=True))
