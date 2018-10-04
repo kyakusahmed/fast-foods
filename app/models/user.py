@@ -1,4 +1,4 @@
-from app1.models.connect import DatabaseConnection
+from app.models.connect import DatabaseConnection
 from datetime import datetime
 from flask import jsonify
 
