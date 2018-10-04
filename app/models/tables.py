@@ -49,7 +49,7 @@ class Migration(DatabaseConnection):
                 QUANTITY VARCHAR(50),
                 LOCATION VARCHAR(50),
                 STATUS VARCHAR(50),
-                CREATED_AT timestamp(6) without time zone NOT NULL
+                CREATED_AT timestamp(6) without time zone
         )
         """)
 
