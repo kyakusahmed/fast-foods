@@ -2,6 +2,7 @@ import unittest
 import json
 from app.models.views import app2
 
+
 class AdminTest(unittest.TestCase):
 
     def setUp(self):
