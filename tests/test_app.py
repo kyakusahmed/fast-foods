@@ -1,6 +1,6 @@
 import unittest
 import json
-from app1.models.views import app2
+from app.models.views import app2
 
 class AdminTest(unittest.TestCase):
 
