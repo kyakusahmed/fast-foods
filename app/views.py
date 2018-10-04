@@ -1,13 +1,15 @@
 from flask import Flask, jsonify, request
-from app1.models.user import User
-from app1.models.admin import Admin
+from app.models.user import User
+from app.models.admin import Admin
 from flask_jwt_extended import (JWTManager, jwt_required, create_access_token,get_jwt_identity)
+
 
 app2 = Flask(__name__)
 jwt = JWTManager(app2)
 app2.config['JWT_SECRET_KEY'] = 'super-secret'
 user = User()
 admin = Admin()
+
 
 @app2.route('/api/v1/users/registration', methods=['POST'])
 def registration():
@@ -18,9 +20,9 @@ def registration():
     user_role = data['role']
     user_roles = ['admin', 'user']
     if user_role not in user_roles:
-        return jsonify({"error": "user type {} doesnot exist".format(user_role)}), 200
+        return jsonify({"error": " role {} doesnot exist".format(user_role)}), 200
 
-    return jsonify({"orders": user.register_user(
+    return jsonify({"msg": user.register_user(
                 data["first_name"],
                 data["last_name"],
                 data["email"],
@@ -33,7 +35,7 @@ def login():
     email = request.json.get('email', None)
     password = request.json.get('password', None)
     if not email:
-        return jsonify({"msg": "Missing username parameter"}), 400
+        return jsonify({"msg": "Missing email parameter"}), 400
     if not password:
         return jsonify({"msg": "Missing password parameter"}), 400
     check_user = user.login_user(email, password)
@@ -41,7 +43,7 @@ def login():
         return jsonify({"msg": "Bad email or password"}), 401
 
     access_token = create_access_token(identity=check_user)
-    return jsonify(access_token=access_token), 200
+    return jsonify(access_token=access_token, msg="Login successful"), 200
 
 
 
@@ -163,7 +165,6 @@ def add_food_to_menu():
 
 if __name__ == "__main__":
     app2.run(debug=True, port=8080)
-
 
 
 
