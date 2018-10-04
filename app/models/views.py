@@ -27,9 +27,6 @@ def get_order(order_id):
 
 
 
-
-  
-
 if __name__ == "__main__":
     app2.run(debug=True, port=8080)
 
