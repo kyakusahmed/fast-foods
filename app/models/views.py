@@ -33,18 +33,6 @@ def get_orders():
 
    
 
-
-
-
-
-
-
-
-
-
-
-  
-
 if __name__ == "__main__":
     app2.run(debug=True, port=8080)
 
