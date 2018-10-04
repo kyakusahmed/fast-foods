@@ -1,4 +1,4 @@
-from app1.models.connect import DatabaseConnection
+from app.models.connect import DatabaseConnection
 
 class Migration(DatabaseConnection):
 
