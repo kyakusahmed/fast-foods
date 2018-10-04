@@ -14,24 +14,21 @@ admin = Admin()
 
 
 
-@app2.route('/api/v1/orders', methods=["GET"])
+@app2.route('/api/v1/orders/<int:order_id>', methods=["GET"])
 @jwt_required
-def get_orders():
+def get_order(order_id):
     current_user = get_jwt_identity()
     if current_user[5] != "admin":
         return jsonify({"msg":"unauthorised access"}), 401
-    else:    
-        return jsonify({"orders": admin.get_all_orders()})
-
-
-
-                       
+    else:
+        return jsonify({"order": admin.get_one_order(order_id)}) 
 
 
 
 
 
-   
+
+  
 
 if __name__ == "__main__":
     app2.run(debug=True, port=8080)
