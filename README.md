@@ -44,13 +44,18 @@ $ python run.py
 ### Heroku link
 https://ahmad-fast-food-fast.herokuapp.com/api/v1/orders
 
-| tasks               |    URLS                |  METHOD  |         PARAMS              | 
-| ------------------- | -----------------------|----------|-----------------------------|
-| get all orders      | api/v1/orders          |  GET     |   ---------------           |
-| get aspecific order | api/v1/orders/id       |  GET     |   ---------------           |
-| post an order       | api/v1/orders          |  POST    | foodid, userid, date, status| 
-| update the status   | api/v1/orders/id       |  PUT     | status                      |
-|                     |                        |          |                             |
+| tasks               |    URLS                |  METHOD  |         PARAMS                                                    | 
+| ------------------- | -----------------------|----------|-------------------------------------------------------------------|
+| get all orders      | api/v1/orders          |  GET     |   ----------------------------------                              |
+| get aspecific order | api/v1/orders/order_id |  GET     |   ------------------------------                                  |
+| post an order       | api/v1/orders          |  POST    | foodid, userid, date, status                                      | 
+| update the status   | api/v1/orders/order_id |  PUT     | status                                                            |
+| user registers      | api/v1/auth/signup     |  POST    | first_name, last_name, email, password, role                      |
+| get menu	      | api/v1/menu            |  GET     |  ------------------------------                                   |
+| add menu            | api/v1/menu            |  POST    | food_title, description, price, status                            |
+| user login          | api/v1/auth/login      |  POST    | email, password                                                   |         |                     |                        |          |                                                                   |
+| user history for    | api/v1/users/orders    |  GET     |  --------------------------                                       |
+| orders              |                        |          |                                                                   |
 	
 ### How to run the Tests:
 
