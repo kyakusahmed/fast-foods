@@ -17,7 +17,7 @@ admin = Admin()
 
 
 @app2.route('/api/v1/users/registration', methods=['POST'])
-@swag_from("../docs/signup&signin/signup.yaml")
+# @swag_from("../docs/signup&signin/signup.yaml")
 def registration():
     data = request.get_json()
     required = ("first_name", "last_name", 'email', 'password', 'role')
@@ -55,7 +55,7 @@ def login():
         return jsonify({"msg": "Missing email parameter"}), 400
     if not password:
         return jsonify({"msg": "Missing password parameter"}), 400
-    check_user = user.login_user(email, password)
+    
     if not bool(
             match(
                 r"^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$",
@@ -63,7 +63,13 @@ def login():
         return jsonify({"msg":"invalid email"}), 406
 
     if len(data["password"]) < 5:
-        return jsonify({"msg":"passowrd is too short"}), 406    
+        return jsonify({"msg":"passowrd is too short"}), 406 
+    check_user = user.login_user(email, password)
+    print(check_user)
+    if not check_user:
+        return jsonify({"msg":"register first"}), 406
+
+
 
     access_token = create_access_token(identity=check_user)
     return jsonify(access_token=access_token, msg="Login successful"), 200
