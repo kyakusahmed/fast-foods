@@ -95,14 +95,8 @@ class AdminTest(unittest.TestCase):
         self.assertEqual(data['msg'], "Missing Authorization Header")
         assert response.status_code == 401
 
-    def test_user_not_found(self):
-        data = {"first_name": "burger","last_name": "banns","email": "johnpaul@outlook.com","password": "7654321","role" : "user"}
-        response = self.app1.get('/api/v1/users/500')
-        data = json.loads(response.get_data(as_text=True))
-        self.assertEqual(data['msg'], "Missing Authorization Header")
-        assert response.status_code == 200
 
-        
+
 
 
         

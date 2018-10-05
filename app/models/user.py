@@ -65,5 +65,6 @@ class User(DatabaseConnection):
             self.cursor.execute(command)
             data = self.cursor.fetchone()
             return data
+        
     
     

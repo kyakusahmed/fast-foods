@@ -17,7 +17,7 @@ admin = Admin()
 
 
 @app2.route('/api/v1/users/registration', methods=['POST'])
-# @swag_from("../docs/signup&signin/signup.yaml")
+@swag_from("../docs/signup&signin/signup.yaml")
 def registration():
     data = request.get_json()
     required = ("first_name", "last_name", 'email', 'password', 'role')
@@ -68,9 +68,6 @@ def login():
     print(check_user)
     if not check_user:
         return jsonify({"msg":"register first"}), 406
-
-
-
     access_token = create_access_token(identity=check_user)
     return jsonify(access_token=access_token, msg="Login successful"), 200
 
@@ -147,7 +144,6 @@ def get_order(orders_id):
 
 
 @app2.route('/api/v1/orders/<int:orders_id>', methods=["PUT"])
-@swag_from("../docs/orders/update_status.yaml")
 @jwt_required
 def update_status(orders_id):
     current_user = get_jwt_identity()
@@ -178,12 +174,7 @@ def get_menu():
         )
     return jsonify({"menu":new_list}), 200   
 
-
-
-
-
 @app2.route('/api/v1/menu', methods=["POST"])
-
 @jwt_required
 def add_food_to_menu():
     current_user = get_jwt_identity()
@@ -206,24 +197,6 @@ def add_food_to_menu():
                     data["price"],
                     data["status"]
                     )}), 201    
-
-
-
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
-  
 
 if __name__ == "__main__":
     app2.run(debug=True, port=8080)
