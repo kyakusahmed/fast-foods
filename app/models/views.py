@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request
+from flasgger import Swagger, swag_from
 from .user import User
 from .admin import Admin
 from re import match
@@ -8,6 +9,7 @@ from flask_jwt_extended import (JWTManager, jwt_required, create_access_token,ge
 
 
 app2 = Flask(__name__)
+Swagger(app2)
 jwt = JWTManager(app2)
 app2.config['JWT_SECRET_KEY'] = 'super-secret'
 user = User()
@@ -15,6 +17,7 @@ admin = Admin()
 
 
 @app2.route('/api/v1/users/registration', methods=['POST'])
+@swag_from("../docs/signup&signin/signup.yaml")
 def registration():
     data = request.get_json()
     required = ("first_name", "last_name", 'email', 'password', 'role')
@@ -43,6 +46,7 @@ def registration():
                 )}), 201
 
 @app2.route('/api/v1/users/login', methods=['POST'])
+@swag_from("../docs/signup&signin/signin.yaml")
 def login():
     data = request.get_json()
     email = request.json.get('email', None)
@@ -67,6 +71,7 @@ def login():
 
 
 @app2.route('/api/v1/users/orders', methods=['POST'])
+
 @jwt_required
 def place_order():
     data = request.get_json()
@@ -92,7 +97,20 @@ def place_order():
 def view_user_history(user_id):
     if not user_id:
         return jsonify({"msg":"user_id not found"})
-    return jsonify({"orders": user.view_user_history(user_id)})
+    else:
+        orders = user.view_user_history(user_id)
+        new_list = []
+        for key in range(len(orders)):
+            new_list.append({   
+                    'orders_id':orders[key][0],
+                    'user_id':orders[key][1],
+                    'quantity':orders[key][2],
+                    'location':orders[key][3],
+                    'status':orders[key][4]
+                }
+
+            )
+    return jsonify({"orders": new_list})
 
 @app2.route('/api/v1/orders', methods=["GET"])
 @jwt_required
@@ -104,17 +122,26 @@ def get_orders():
         return jsonify({"orders": admin.get_all_orders()})
 
 
-@app2.route('/api/v1/orders/<int:order_id>', methods=["GET"])
+
+@app2.route('/api/v1/orders/<int:orders_id>', methods=["GET"])
 @jwt_required
-def get_order(order_id):
+def get_order(orders_id):
     current_user = get_jwt_identity()
     if current_user[5] != "admin":
         return jsonify({"msg":"unauthorised access"}), 401
     else:
-        return jsonify({"order": admin.get_one_order(order_id)}) 
+        order = Admin().get_one_order(orders_id)
+        return jsonify({"order": {   
+                    'orders_id':order[0],
+                    'user_id':order[1],
+                    'quantity':order[2],
+                    'location':order[3],
+                    'status':order[4]
+                }}), 200
 
 
 @app2.route('/api/v1/orders/<int:orders_id>', methods=["PUT"])
+@swag_from("../docs/orders/update_status.yaml")
 @jwt_required
 def update_status(orders_id):
     current_user = get_jwt_identity()
@@ -133,17 +160,32 @@ def get_menu():
     current_user = get_jwt_identity()
     if current_user[5] != "admin":
         return jsonify({"msg":"unauthorised access"}), 401
-    else:    
-        return jsonify({"menu": admin.get_menu()})
+    else:
+        menu = admin.get_menu()
+        new_list = []
+        for key in range(len(menu)):
+            new_list.append(
+                {   
+                    'menu_id':menu[key][0],
+                    'food_title':menu[key][1],
+                    'description':menu[key][2],
+                    'price':menu[key][3],
+                    'status':menu[key][4]
+                }
+
+            )
+        return jsonify({"menu":new_list}), 200   
 
 
 
 
 
 @app2.route('/api/v1/menu', methods=["POST"])
+
 @jwt_required
 def add_food_to_menu():
     current_user = get_jwt_identity()
+    print(current_user[5])
     if current_user[5] != "admin":
         return jsonify({"msg":"unauthorised access"}), 401
     else:

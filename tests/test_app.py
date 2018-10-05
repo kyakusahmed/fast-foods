@@ -14,7 +14,7 @@ class AdminTest(unittest.TestCase):
            "first_name":"ahmed",
 	       "last_name":"kyakus",
 	       "email":"ahmed@outlook.com",
-	       "password":"1234",
+	       "password":"123456",
 	       "role": "admin"
         }
         response = self.app1.post('/api/v1/users/registration', content_type="application/json", data=json.dumps(data))

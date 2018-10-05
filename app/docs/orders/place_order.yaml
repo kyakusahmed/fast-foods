@@ -1,0 +1,27 @@
+Orders docs
+---
+tags:
+  - Orders
+parameters:
+  - name: Authorization
+    in: header
+    type: string
+    description: JWT token authorization
+    required: true
+    example: "Bearer "
+  
+
+    schema:
+      required:
+        - order_status
+      type: object
+      properties:
+        order_status:
+          type: string
+          example: "Complete"
+response
+  200:
+    description: The user provides order_status
+
+  400:
+    description: Empty item_id, delivery_location
