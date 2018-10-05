@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/kyakusahmed/fast-foods.svg?branch=CHALLENGE-3)](https://travis-ci.org/kyakusahmed/fast-foods)
-[![Coverage Status](https://coveralls.io/repos/github/kyakusahmed/fast-foods/badge.svg?branch=CHALLENGE-3)](https://coveralls.io/github/kyakusahmed/fast-foods?branch=CHALLENGE-3)
+[![Build Status](https://travis-ci.org/kyakusahmed/fast-foods.svg?branch=challenge-3)](https://travis-ci.org/kyakusahmed/fast-foods)
+[![Coverage Status](https://coveralls.io/repos/github/kyakusahmed/fast-foods/badge.svg?branch=challenge-3)](https://coveralls.io/github/kyakusahmed/fast-foods?branch=challenge-3)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d0de8b9e4f09f978e53e/maintainability)](https://codeclimate.com/github/kyakusahmed/fast-foods/maintainability)
 
 ## Fast-Food-Fast Application.
