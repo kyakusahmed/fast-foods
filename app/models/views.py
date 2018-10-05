@@ -157,24 +157,20 @@ def update_status(orders_id):
 @app2.route('/api/v1/menu', methods=["GET"])
 @jwt_required
 def get_menu():
-    current_user = get_jwt_identity()
-    if current_user[5] != "admin":
-        return jsonify({"msg":"unauthorised access"}), 401
-    else:
-        menu = admin.get_menu()
-        new_list = []
-        for key in range(len(menu)):
-            new_list.append(
-                {   
-                    'menu_id':menu[key][0],
-                    'food_title':menu[key][1],
-                    'description':menu[key][2],
-                    'price':menu[key][3],
-                    'status':menu[key][4]
-                }
+    menu = admin.get_menu()
+    new_list = []
+    for key in range(len(menu)):
+        new_list.append(
+            {   
+                'menu_id':menu[key][0],
+                'food_title':menu[key][1],
+                'description':menu[key][2],
+                'price':menu[key][3],
+                'status':menu[key][4]
+            }
 
-            )
-        return jsonify({"menu":new_list}), 200   
+        )
+    return jsonify({"menu":new_list}), 200   
 
 
 
