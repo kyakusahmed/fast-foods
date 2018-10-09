@@ -6,15 +6,13 @@ omit = */python/*
       */flask/*
       */markupsafe/*
       */kenv/*
-     */.vscode/*
-     *__init__*
+      */.vscode/*
+      *__init__*
+      */scrapy/*
+      scrapy/xlib/* 
    
      
 
-branch = true
-include = */scrapy/*
-omit =
-    tests/*
-    scrapy/xlib/*     
+
      
      
