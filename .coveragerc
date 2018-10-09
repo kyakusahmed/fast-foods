@@ -8,8 +8,9 @@ omit = */python/*
       */kenv/*
      */.vscode/*
      *__init__*
+   
      
-[run]
+
 branch = true
 include = */scrapy/*
 omit =
