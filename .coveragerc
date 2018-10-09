@@ -20,6 +20,7 @@ omit =
     */env/*
     *//home/travis/virtualenv/*
     */virtualenv/*
+    */kenv/*
 
     */decimal.py
     */asyncio.py
@@ -37,7 +38,6 @@ omit =
     */app.py 
     */contextvars.py
     */html/*__init__.py
-    */app/api.py
     */app/manage.py                  
     */click/*
     */colorama/*
