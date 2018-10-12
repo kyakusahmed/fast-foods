@@ -5,7 +5,7 @@ from .admin import Admin
 from re import match
 import datetime
 
-from flask_jwt_extended import (JWTManager, jwt_required, create_access_token,get_jwt_identity)
+from flask_jwt_extended import (JWTManager, jwt_required, create_access_token,get_jwt_identity,jwt_optional)
 
 
 app2 = Flask(__name__)
@@ -74,7 +74,7 @@ def login():
 
 
 @app2.route('/api/v1/users/orders', methods=['POST'])
-
+@swag_from("../docs/orders/place_order.yaml")
 @jwt_required
 def place_order():
     data = request.get_json()
@@ -197,6 +197,17 @@ def add_food_to_menu():
                     data["price"],
                     data["status"]
                     )}), 201    
+
+
+@app2.route('/api/v1/partially-protected', methods=['GET'])
+@jwt_optional
+def partially_protected():
+    current_user = get_jwt_identity()
+    if current_user:
+        return jsonify(logged_in_as=current_user), 200
+    else:
+        return jsonify(loggeed_in_as='anonymous user'), 200
+                 
 
 if __name__ == "__main__":
     app2.run(debug=True, port=8080)

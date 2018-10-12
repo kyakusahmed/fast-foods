@@ -13,9 +13,9 @@ install:
 
 
 script:
-  -  nosetests --with-coverage --cover-tests
+  - pytest -v --cov app --cov-report term-missing
   - coverage report
-
+  
 after_success:
 - coveralls
 - test coverage report

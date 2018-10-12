@@ -1,5 +1,5 @@
 from app.models.connect import DatabaseConnection
-import datetime
+from datetime import datetime
 
 
 class User(DatabaseConnection):
@@ -46,7 +46,7 @@ class User(DatabaseConnection):
     def place_order(self, user_id, quantity, location, status, created_at):
             command = """
             INSERT INTO orders (user_id, quantity, location, status, created_at)  VALUES('{}', '{}', '{}', '{}','{}')
-            """.format(user_id, quantity, location, status, created_at)
+            """.format(user_id, quantity, location, status, str(datetime.now()))
             self.cursor.execute(command)
             return "order is placed"
 
