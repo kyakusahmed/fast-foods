@@ -66,6 +66,6 @@ https://ahmad-fast-food-fast.herokuapp.com/api/v1/orders
 ```
  using nosetest  in open the terminal,activate virtual enviroment in the fast-foods directory and enter:
  ```
- $ nosetests --with-coverage --cover-tests
+ $ pytest --cov=app
  ```
 
