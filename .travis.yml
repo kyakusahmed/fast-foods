@@ -13,9 +13,8 @@ install:
 
 
 script:
-  - pytest --cov
+  - nosetests --with-coverage --cover-tests
   - coverage report
-  - test coverage report
 
 after_success:
 - coveralls
