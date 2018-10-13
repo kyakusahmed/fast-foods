@@ -104,21 +104,21 @@ class AdminTest(BaseTest):
     def test_get_orders(self):
         token = self.return_user_token()
         response = self.app1.get("/api/v1/orders", headers={"Authorization":"Bearer " + token})
-        data = json.loads(response.get_data(as_text=True))
+        data = json.loads(response.get_data())
         assert response.status_code == 401
         self.assertEqual(data['msg'], "unauthorised access")
 
     def test_get_orders_with_admin_token(self):
         token = self.return_admin_token()
         response = self.app1.get("/api/v1/orders", headers={"Authorization":"Bearer " + token})
-        data = json.loads(response.get_data(as_text=True))
+        data = json.loads(response.get_data())
         assert response.status_code == 200
         self.assertIsInstance(data['orders'], list)    
 
     def test_get_order(self):
         token = self.return_user_token() 
         response = self.app1.get('/api/v1/orders/1', headers={"Authorization":"Bearer " + token})
-        data = json.loads(response.get_data(as_text=True))
+        data = json.loads(response.get_data())
         assert response.status_code == 401
         self.assertEqual(data['msg'], "unauthorised access")   
 
