@@ -52,7 +52,6 @@ class AdminTest(BaseTest):
         self.assertEqual(data['msg'], "Missing Authorization Header")
     
     def test_place_order_without_token(self):
-    
         response = self.app1.post("/api/v1/users/orders")
         data = json.loads(response.get_data(as_text=True))
         assert response.status_code == 401
@@ -120,7 +119,13 @@ class AdminTest(BaseTest):
         response = self.app1.get('/api/v1/orders/1', headers={"Authorization":"Bearer " + token})
         data = json.loads(response.get_data())
         assert response.status_code == 401
-        self.assertEqual(data['msg'], "unauthorised access")   
+        self.assertEqual(data['msg'], "unauthorised access")
+
+    def test_get_order_with_admin_token(self):
+        token = self.return_admin_token() 
+        response = self.app1.get('/api/v1/orders/1', headers={"Authorization":"Bearer " + token})
+        assert response.status_code == 200
+        self.assertIsInstance(json.loads(response.data)['order'], dict)         
 
     def test_view_user_histor(self):
         token = self.return_user_token() 
@@ -137,7 +142,7 @@ class AdminTest(BaseTest):
         assert response.status_code == 200
         
 
-    def test_add_food_to_menu(self):
+    def test_add_food_to_menu_user_token(self):
         token = self.return_user_token()
         data = {
             "food_title":"maunches",
@@ -149,6 +154,18 @@ class AdminTest(BaseTest):
         self.assertEqual(response.status_code, 401)
         assert json.loads(response.data)['msg'] == "unauthorised access"
 
+    def test_add_food_to_menu_admin_token(self):
+        token = self.return_admin_token()
+        data = {
+            "food_title":"maunches",
+            "description":"banns plus creamy biscuits",
+            "price":"500k",
+            "status":"pending"
+            }
+        response = self.app1.post("/api/v1/menu", headers={"Authorization": "Bearer " + token},json=data)
+        self.assertEqual(response.status_code, 201)
+        assert json.loads(response.data)['menu'] == "Data Inserted Successfully"   
+
 
     def test_get_menu(self):
         token = self.return_admin_token()
@@ -158,8 +175,49 @@ class AdminTest(BaseTest):
             "price":"500k",
             "status":"pending"
             }
-        response = self.app1.post("/api/v1/menu", headers={"Authorization": "Bearer " + token}, json=data)
-        self.assertEqual(response.status_code, 201)
+        self.app1.post("/api/v1/menu", headers={"Authorization": "Bearer " + token}, json=data)
+        response =self.app1.get('/api/v1/menu', headers={"Authorization":"Bearer " + token})
+        self.assertEqual(response.status_code, 200)
+        self.assertIsInstance(json.loads(response.data)['menu'], list)
+
+    def test_update_status(self):
+        token = self.return_admin_token()
+        MENU_DATA = {
+            "food_title":"maunches",
+            "description":"banns plus creamy biscuits",
+            "price":"500k",
+            "status":"pending"
+            }
+        
+        self.app1.post(
+            '/api/v1/menu',
+            headers={"Authorization": "Bearer " + token},
+            json=MENU_DATA)
+
+        ORDER_DATA = {
+            "user_id": "1",
+            "quantity": "12kg",
+            "location": "manafa",
+            "status": "pending"
+            }
+
+        self.app1.post(
+            "/api/v1/orders",
+            headers={"Authorization": "Bearer " + token}, 
+            json=ORDER_DATA)
+
+        response = self.app1.put(
+            "/api/v1/orders/1",
+            headers={"Authorization": "Bearer " + token},
+            json={"status": "Complete"})
+        assert response.status_code == 200
+        assert json.loads(response.data)['order'] == "status updated"
+
+
+
+
+
+    
 
 
      
