@@ -18,12 +18,15 @@ class User(DatabaseConnection):
             return "failed {}".format(ex)
 
     def login_user(self, email, password):
-        command = """
-        SELECT * FROM users WHERE email= '{}' AND password = '{}'
-        """.format(email, password)
-        self.cursor.execute(command)
-        data = self.cursor.fetchone()
-        return data
+        try:
+            command = """
+            SELECT * FROM users WHERE email= '{}' AND password = '{}'
+            """.format(email, password)
+            self.cursor.execute(command)
+            user1 = self.cursor.fetchone()
+            return user1
+        except Exception as ex:
+            return "failed {}".format(ex)    
 
     def view_user_history(self, user_id):
         command = """
