@@ -29,15 +29,13 @@ class User(DatabaseConnection):
             return "failed {}".format(ex)    
 
     def view_user_history(self, user_id):
-        try:
-            command = """
-            SELECT * from orders WHERE user_id = {}
-            """.format(user_id)
-            self.cursor.execute(command)
-            order4 = self.cursor.fetchall()  
-            return order4
-        except Exception as ex:
-            return "failed {}".format(ex)    
+        command = """
+        SELECT * from orders WHERE user_id = {}
+        """.format(user_id)
+        self.cursor.execute(command)
+        order1 = self.cursor.fetchall()  
+        return order1
+    
 
 
     def delete_user(self, userd_id):

@@ -111,7 +111,7 @@ class AdminTest(BaseTest):
         token = self.return_admin_token()
         response = self.app1.get("/api/v1/orders", headers={"Authorization":"Bearer " + token})
         data = json.loads(response.get_data())
-        assert response.status_code == 200
+        self.assertEqual(response.status_code, 200)
         self.assertIsInstance(data['orders'], list)    
 
     def test_get_order(self):
@@ -124,7 +124,7 @@ class AdminTest(BaseTest):
     def test_get_order_with_admin_token(self):
         token = self.return_admin_token() 
         response = self.app1.get('/api/v1/orders/1', headers={"Authorization":"Bearer " + token})
-        assert response.status_code == 200
+        self.assertEqual(response.status_code, 200)
         self.assertIsInstance(json.loads(response.data)['order'], dict)         
 
     def test_view_user_histor(self):
@@ -210,7 +210,7 @@ class AdminTest(BaseTest):
             "/api/v1/orders/1",
             headers={"Authorization": "Bearer " + token},
             json={"status": "Complete"})
-        assert response.status_code == 200
+        self.assertEqual(response.status_code, 200)
         assert json.loads(response.data)['order'] == "status updated"
 
 
