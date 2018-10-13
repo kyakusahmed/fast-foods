@@ -22,8 +22,8 @@ class User(DatabaseConnection):
         SELECT * FROM users WHERE email= '{}' AND password = '{}'
         """.format(email, password)
         self.cursor.execute(command)
-        user = self.cursor.fetchone()
-        return user
+        data = self.cursor.fetchone()
+        return data
 
     def view_user_history(self, user_id):
         command = """
