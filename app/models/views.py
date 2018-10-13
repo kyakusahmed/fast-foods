@@ -64,8 +64,7 @@ def login():
 
     if len(data["password"]) < 5:
         return jsonify({"msg":"passowrd is too short"}), 406 
-    check_user = User().login_user(email, password)
-    print(check_user)
+    check_user = user.login_user(email, password)
     if not check_user:
         return jsonify({"msg":"register first"}), 406
     access_token = create_access_token(identity=check_user)
