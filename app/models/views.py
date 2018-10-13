@@ -151,9 +151,9 @@ def update_status(orders_id):
         return jsonify({"msg":"unauthorised access"}), 401
     else:
         get_input = request.get_json()
-        if not get_input.get("status"):
+        if not get_input.get("status").strip():
             return jsonify({"error" : "status is required"}), 200
-        return jsonify({"orders" : admin.update_order_status(orders_id, get_input["status"])}), 200
+        return jsonify({"order" : admin.update_order_status(orders_id, get_input["status"])}), 200
 
 
 @app2.route('/api/v1/menu', methods=["GET"])
