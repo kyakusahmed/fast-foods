@@ -54,7 +54,8 @@ MENU_DATA = {
 }
 
 ORDER_DATA = {
-    "menu_id": 1,
-    "location": "Makerere",
-    "quantity": 2
+   	"user_id": "1",
+	"quantity": "12kg",
+	"location": "manafa",
+	"status": "pending"
 }

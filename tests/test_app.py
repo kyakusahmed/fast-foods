@@ -127,7 +127,7 @@ class AdminTest(BaseTest):
         self.assertEqual(response.status_code, 200)
         self.assertIsInstance(json.loads(response.data)['order'], dict)         
 
-    def test_view_user_histor(self):
+    def test_view_user_history(self):
         token = self.return_user_token() 
         data = {
             "food_title": "burger",
@@ -137,9 +137,12 @@ class AdminTest(BaseTest):
         }
 
         self.app1.post('/api/v1/menu',content_type="application/json", data=json.dumps(data))
-        response =self.app1.get('/api/v1/menu', headers={"Authorization":"Bearer " + token})
-        data = json.loads(response.get_data(as_text=True)) 
+        response =self.app1.get('/api/v1/menu', headers={"Authorization":"Bearer " + token}) 
         assert response.status_code == 200
+          
+
+        
+       
         
 
     def test_add_food_to_menu_user_token(self):
@@ -162,7 +165,7 @@ class AdminTest(BaseTest):
             "price":"500k",
             "status":"pending"
             }
-        response = self.app1.post("/api/v1/menu", headers={"Authorization": "Bearer " + token},json=data)
+        response = self.app1.post("/api/v1/menu", headers={"Authorization": "Bearer " + token}, json=data)
         self.assertEqual(response.status_code, 201)
         assert json.loads(response.data)['menu'] == "Data Inserted Successfully"   
 

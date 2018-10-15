@@ -1,31 +1,42 @@
-Authentication docs
+Add food to menu
 ---
 tags:
-  - {}
-consumes:
-  - application/json
-produces:
-  - application/json
+  - Orders
 parameters:
+  - name: Authorization
+    in: header
+    type: string
+    description: JWT token authorization
+    required: true
+    example: "Bearer "
   - in: body
     name: body
     type: object
-    description: This endpoint is for user login. The user provides  email and password to login
+    description: This endpoint is for users to place orders
 
     schema:
       required:
-        - email
-        - password
+        - food_title
+        - description
+        - price
+        - status
       type: object
       properties:
-        email:
-          example: ahmed@outlook.com
+        food_title:
           type: string
-        password:
-          example: 1a23456
+          example: liver_&_flies
+        description:
           type: string
+          example: fried_liver_and_chips
+        price: 
+          type: string
+          example: 25000k
+        status:
+          type: string
+          example: pending  
 responses:
   200:
-    description: The user provides  email and password  to login
-  400:
-    description: Empty password or email field.
+    description: The user provides food_title, description, price, status
+
+  401:
+    description: unauthorised access

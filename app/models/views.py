@@ -64,7 +64,7 @@ def login():
 
     if len(data["password"]) < 5:
         return jsonify({"msg":"passowrd is too short"}), 406 
-    check_user = User().login_user(email, password)
+    check_user = user.login_user(email, password)
     if not check_user:
         return jsonify({"msg":"register first"}), 406
     access_token = create_access_token(identity=check_user)
@@ -73,8 +73,8 @@ def login():
 
 
 @app2.route('/api/v1/users/orders', methods=['POST'])
-@swag_from("../docs/orders/place_order.yaml")
 @jwt_required
+@swag_from("../docs/orders/place_order.yaml")
 def place_order():
     data = request.get_json()
     if not data.get("user_id"):
@@ -96,6 +96,7 @@ def place_order():
 
 @app2.route('/api/v1/users/orders/<user_id>', methods=['GET'])
 @jwt_required
+@swag_from("../docs/orders/view_history.yaml")
 def view_user_history(user_id):
     if not user_id:
         return jsonify({"msg":"user_id not found"})
@@ -116,6 +117,7 @@ def view_user_history(user_id):
 
 @app2.route('/api/v1/orders', methods=["GET"])
 @jwt_required
+@swag_from("../docs/orders/get_orders.yaml")
 def get_orders():
     current_user = get_jwt_identity()
     if current_user[5] != "admin":
@@ -127,6 +129,7 @@ def get_orders():
 
 @app2.route('/api/v1/orders/<int:orders_id>', methods=["GET"])
 @jwt_required
+@swag_from("../docs/orders/get_order.yaml")
 def get_order(orders_id):
     current_user = get_jwt_identity()
     if current_user[5] != "admin":
@@ -144,6 +147,7 @@ def get_order(orders_id):
 
 @app2.route('/api/v1/orders/<int:orders_id>', methods=["PUT"])
 @jwt_required
+@swag_from("../docs/orders/update_status.yaml")
 def update_status(orders_id):
     current_user = get_jwt_identity()
     if current_user[5] != "admin":
@@ -157,6 +161,7 @@ def update_status(orders_id):
 
 @app2.route('/api/v1/menu', methods=["GET"])
 @jwt_required
+@swag_from("../docs/menu/get_menu.yaml")
 def get_menu():
     menu = admin.get_menu()
     new_list = []
@@ -175,6 +180,7 @@ def get_menu():
 
 @app2.route('/api/v1/menu', methods=["POST"])
 @jwt_required
+@swag_from("../docs/menu/add_menu.yaml")
 def add_food_to_menu():
     current_user = get_jwt_identity()
     print(current_user[5])
@@ -198,14 +204,14 @@ def add_food_to_menu():
                     )}), 201    
 
 
-@app2.route('/api/v1/partially-protected', methods=['GET'])
-@jwt_optional
-def partially_protected():
-    current_user = get_jwt_identity()
-    if current_user:
-        return jsonify(logged_in_as=current_user), 200
-    else:
-        return jsonify(loggeed_in_as='anonymous user'), 200
+# @app2.route('/api/v1/partially-protected', methods=['GET'])
+# @jwt_optional
+# def partially_protected():
+#     current_user = get_jwt_identity()
+#     if current_user:
+#         return jsonify(logged_in_as=current_user), 200
+#     else:
+#         return jsonify(loggeed_in_as='anonymous user'), 200
                  
 
 if __name__ == "__main__":

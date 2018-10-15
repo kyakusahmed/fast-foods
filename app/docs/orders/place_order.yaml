@@ -1,4 +1,4 @@
-Orders docs
+ place Orders docs
 ---
 tags:
   - Orders
@@ -9,7 +9,16 @@ parameters:
     description: JWT token authorization
     required: true
     example: "Bearer "
-  
+  - name: order_id
+    in: path
+    description: This is the Id of the order item you want to view. You can get the ID from the /api/v1/orders endpoint
+    required: true
+    type: integer
+    format: int64
+  - in: body
+    name: body
+    type: object
+    description: This endpoint is for customers to place an order
 
     schema:
       required:
@@ -19,9 +28,9 @@ parameters:
         order_status:
           type: string
           example: "Complete"
-response
+responses:
   200:
-    description: The user provides order_status
+    description: required fields
 
-  400:
-    description: Empty item_id, delivery_location
+  401:
+    description: unauthorised access
