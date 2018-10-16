@@ -43,7 +43,95 @@ class AdminTest(BaseTest):
         result = self.app1.post('/api/v1/users/login', content_type = "application/json", data=json.dumps(data))
         self.assertEqual(result.status_code, 200)
         self.assertEqual(json.loads(result.data)["msg"], "Login successful")
-        
+
+    def test_email_not_registered(self):
+        data = {
+           "first_name":"ahmed",
+	       "last_name":"kyakus",
+	       "email":"kyakus@outlook.com",
+	       "password":"123456",
+	       "role": "admin"
+           }
+        self.app1.post('/api/v1/users/registration', content_type = "application/json", data=json.dumps(data))
+     
+        data = {
+            "email": "omo@outlook.com",
+            "password": "123456"
+        }
+        result = self.app1.post('/api/v1/users/login', content_type = "application/json", data=json.dumps(data))
+        self.assertEqual(result.status_code, 406)
+        self.assertEqual(json.loads(result.data)["msg"], "register first")
+
+    def test_role_doesnt_exist(self):
+        data = {
+           "first_name":"ahmed",
+	       "last_name":"kyakus",
+	       "email":"kyakus@outlook.com",
+	       "password":"123456",
+	       "role": "mime"
+           }
+        response = self.app1.post('/api/v1/users/registration', content_type = "application/json", data=json.dumps(data))
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(json.loads(response.data)["error"], " role mime doesnot exist")
+
+    def test_delete_user(self):
+        token = self.return_admin_token()
+        data = {
+           "first_name":"ahmed",
+	       "last_name":"kyakus",
+	       "email":"ahmed@outlook.com",
+	       "password":"123456",
+	       "role": "user"
+        }
+        self.app1.post('/api/v1/users/registration', content_type="application/json", data=json.dumps(data))
+
+        data = {
+           "first_name":"ahmd",
+	       "last_name":"kyaku",
+	       "email":"ahmd@outlook.com",
+	       "password":"12a456",
+	       "role": "admin"
+        }
+        self.app1.post('/api/v1/users/registration', content_type="application/json", data=json.dumps(data))
+
+        data = {
+            "email":"ahmd@outlook.com",
+	        "password":"12a456"
+        }
+        self.app1.post('/api/v1/users/login', content_type = "application/json", data=json.dumps(data))
+        response =  self.app1.delete('/api/v1/users/1', headers={"Authorization": "Bearer " + token})
+        data = json.loads(response.get_data(as_text=True))
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(data['msg'], "data deleted")
+
+    def test_get_all_users(self):
+        token = self.return_admin_token()
+        data = {
+           "first_name":"ahmed",
+	       "last_name":"kyakus",
+	       "email":"ahmed@outlook.com",
+	       "password":"123456",
+	       "role": "user"
+        }
+        self.app1.post('/api/v1/users/registration', content_type="application/json", data=json.dumps(data))
+
+        data = {
+           "first_name":"ahmd",
+	       "last_name":"kyaku",
+	       "email":"ahmd@outlook.com",
+	       "password":"12a456",
+	       "role": "admin"
+        }
+        self.app1.post('/api/v1/users/registration', content_type="application/json", data=json.dumps(data))
+        data = {
+            "email":"ahmd@outlook.com",
+	        "password":"12a456"
+        }
+        self.app1.post('/api/v1/users/login', content_type = "application/json", data=json.dumps(data))
+        response = self.app1.get('/api/v1/users', headers={"Authorization": "Bearer " + token})
+        data = json.loads(response.get_data(as_text=True))
+        self.assertEqual(response.status_code, 200)
+        self.assertIsInstance(json.loads(response.data)['users'], list)
 
     def test_get_all_orders_unauthorised(self):
         response = self.app1.get("/api/v1/orders")
@@ -114,7 +202,7 @@ class AdminTest(BaseTest):
         self.assertEqual(response.status_code, 200)
         self.assertIsInstance(data['orders'], list)    
 
-    def test_get_order(self):
+    def test_get_order_with_user_token(self):
         token = self.return_user_token() 
         response = self.app1.get('/api/v1/orders/1', headers={"Authorization":"Bearer " + token})
         data = json.loads(response.get_data())
@@ -122,10 +210,11 @@ class AdminTest(BaseTest):
         self.assertEqual(data['msg'], "unauthorised access")
 
     def test_get_order_with_admin_token(self):
-        token = self.return_admin_token() 
+        token = self.return_admin_token()
+
         response = self.app1.get('/api/v1/orders/1', headers={"Authorization":"Bearer " + token})
         self.assertEqual(response.status_code, 200)
-        self.assertIsInstance(json.loads(response.data)['order'], dict)         
+        self.assertIsInstance(json.loads(response.get_data())['order'], dict)         
 
     def test_view_user_history(self):
         token = self.return_user_token() 
@@ -140,10 +229,6 @@ class AdminTest(BaseTest):
         response =self.app1.get('/api/v1/menu', headers={"Authorization":"Bearer " + token}) 
         assert response.status_code == 200
           
-
-        
-       
-        
 
     def test_add_food_to_menu_user_token(self):
         token = self.return_user_token()

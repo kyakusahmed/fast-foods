@@ -13,7 +13,7 @@ install:
 
 
 script:
-  - nosetests --with-coverage --cover-tests
+  - pytest --cov=app
   - coverage report
 
 after_success:

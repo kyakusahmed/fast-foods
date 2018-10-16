@@ -29,7 +29,7 @@ def registration():
                 data["email"])):
         return jsonify({"msg":"invalid email"}), 406
 
-    if len(data["password"]) < 5:
+    if len(data["password"].strip()) < 5:
         return jsonify({"msg":"passowrd is too short"}), 406
     
     user_role = data['role']
@@ -202,6 +202,29 @@ def add_food_to_menu():
                     data["price"],
                     data["status"]
                     )}), 201    
+
+
+@app2.route('/api/v1/users/<int:user_id>', methods=["DELETE"])
+@jwt_required
+def remove_user1(user_id):
+    current_user = get_jwt_identity()
+    if current_user[5] != "admin":
+        return jsonify({"msg":"unauthorised access"}), 401
+    else:
+        return jsonify({"msg": User().delete_user(user_id)})
+
+
+@app2.route('/api/v1/users', methods=["GET"])
+@jwt_required
+def get_all_users():
+    current_user = get_jwt_identity()
+    if current_user[5] != "admin":
+        return jsonify({"msg":"unauthorised access"}), 401
+    else:
+        return jsonify({"users": admin.get_all_users()}), 200
+
+
+
 
 
 # @app2.route('/api/v1/partially-protected', methods=['GET'])

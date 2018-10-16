@@ -21,15 +21,11 @@ class Admin(DatabaseConnection):
         self.cursor.execute(command)
         return self.cursor.fetchone() 
 
-
-
     def update_order_status(self, orders_id, status):
         command = "UPDATE orders SET status = '%s' WHERE orders_id = '%s'" % (status, orders_id)
         self.cursor.execute(command)
         return "status updated"
         
-
-
     def add_meal(self, food_title, description, price, status):
         try:
             command = """
@@ -48,6 +44,14 @@ class Admin(DatabaseConnection):
             return menu
         except Exception as ex:
             return "failed {}".format(ex)
+    
+    def get_all_users(self):
+        command = """
+        select row_to_json(row) from (SELECT * FROM users) row 
+        """ 
+        self.cursor.execute(command)
+        return self.cursor.fetchall()
+
 
 
 

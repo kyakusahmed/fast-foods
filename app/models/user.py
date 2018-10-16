@@ -36,13 +36,11 @@ class User(DatabaseConnection):
         order1 = self.cursor.fetchall()  
         return order1
     
-
-
-    def delete_user(self, userd_id):
+    def delete_user(self, user_id):
         try:
             command = """
             DELETE from users WHERE user_id = {}
-            """.format(userd_id)
+            """.format(user_id)
             self.cursor.execute(command)
             return  "data deleted"
         except Exception as ex:
@@ -64,12 +62,14 @@ class User(DatabaseConnection):
         return data
 
     def find_user_by_email(self, email):
-            command = """
-            SELECT * from users WHERE email ={}
-            """.format(email)
-            self.cursor.execute(command)
-            data = self.cursor.fetchone()
-            return data
+        command = """
+        SELECT * from users WHERE email ={}
+        """.format(email)
+        self.cursor.execute(command)
+        data = self.cursor.fetchone()
+        return data
+
+   
         
     
     
