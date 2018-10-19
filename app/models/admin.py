@@ -38,7 +38,7 @@ class Admin(DatabaseConnection):
 
     def get_menu(self):
         try:
-            command= "SELECT * FROM MENU"
+            command= """SELECT * FROM MENU"""
             self.cursor.execute(command)
             menu = self.cursor.fetchall()
             return menu
