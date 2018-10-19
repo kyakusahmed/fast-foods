@@ -170,11 +170,11 @@ def get_menu():
     for key in range(len(menu)):
         new_list.append(
             {   
-                'menu_id':menu[key][0],
-                'food_title':menu[key][1],
-                'description':menu[key][2],
-                'price':menu[key][3],
-                'status':menu[key][4]
+                
+                'food_title':menu[key][0],
+                'description':menu[key][1],
+                'price':menu[key][2],
+                'status':menu[key][3]
             }
 
         )
