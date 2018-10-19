@@ -188,11 +188,11 @@ class AdminTest(BaseTest):
         # assert json.loads(response.data)['menu'] == "Data Inserted Successfully"   
 
 
-    def test_get_menu(self):
-        token = self.return_admin_token()
-        response = self.app1.get("/api/v1/menu", headers={"Authorization": "Bearer " + token})
-        assert response.status_code == 200
-        self.assertIsInstance(json.loads(response.data)['menu'], list)
+    # def test_get_menu(self):
+    #     token = self.return_admin_token()
+    #     response = self.app1.get("/api/v1/menu", headers={"Authorization": "Bearer " + token})
+    #     assert response.status_code == 200
+    #     self.assertIsInstance(json.loads(response.data)['menu'], list)
 
     def test_update_status(self):
         token = self.return_admin_token()

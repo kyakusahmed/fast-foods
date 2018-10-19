@@ -45,11 +45,11 @@ class UserTest(BaseTest):
         assert response.status_code == 401
         self.assertEqual(data['msg'], "unauthorised access")
 
-    def test_view_user_history(self):
-        token = self.return_user_token() 
-        response =self.app1.get('/api/v1/menu', headers={"Authorization":"Bearer " + token}) 
-        assert response.status_code == 200
-        
+    # def test_view_user_history(self):
+    #     token = self.return_user_token() 
+    #     response =self.app1.get('/api/v1/menu', headers={"Authorization":"Bearer " + token}) 
+    #     assert response.status_code == 200
+
           
 
     def test_add_food_to_menu_user_token(self):
