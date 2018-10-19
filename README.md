@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/kyakusahmed/fast-foods.svg?branch=APIendpoints)](https://travis-ci.org/kyakusahmed/fast-foods)
-[![Coverage Status](https://coveralls.io/repos/github/kyakusahmed/fast-foods/badge.svg?branch=APIendpoints)](https://coveralls.io/github/kyakusahmed/fast-foods?branch=APIendpoints)
+[![Build Status](https://travis-ci.org/kyakusahmed/fast-foods.svg?branch=challenge-3)](https://travis-ci.org/kyakusahmed/fast-foods)
+[![Coverage Status](https://coveralls.io/repos/github/kyakusahmed/fast-foods/badge.svg?branch=challenge-3)](https://coveralls.io/github/kyakusahmed/fast-foods?branch=challenge-3)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d0de8b9e4f09f978e53e/maintainability)](https://codeclimate.com/github/kyakusahmed/fast-foods/maintainability)
 
 ## Fast-Food-Fast Application.
@@ -44,13 +44,18 @@ $ python run.py
 ### Heroku link
 https://ahmad-fast-food-fast.herokuapp.com/api/v1/orders
 
-| tasks               |    URLS                |  METHOD  |         PARAMS              | 
-| ------------------- | -----------------------|----------|-----------------------------|
-| get all orders      | api/v1/orders          |  GET     |   ---------------           |
-| get aspecific order | api/v1/orders/id       |  GET     |   ---------------           |
-| post an order       | api/v1/orders          |  POST    | foodid, userid, date, status| 
-| update the status   | api/v1/orders/id       |  PUT     | status                      |
-|                     |                        |          |                             |
+| tasks               |    URLS                |  METHOD  |         PARAMS                                                    | 
+| ------------------- | -----------------------|----------|-------------------------------------------------------------------|
+| get all orders      | api/v1/orders          |  GET     |   ----------------------------------                              |
+| get aspecific order | api/v1/orders/order_id |  GET     |   ------------------------------                                  |
+| post an order       | api/v1/orders          |  POST    | foodid, userid, date, status                                      | 
+| update the status   | api/v1/orders/order_id |  PUT     | status                                                            |
+| user registers      | api/v1/auth/signup     |  POST    | first_name, last_name, email, password, role                      |
+| get menu	      | api/v1/menu            |  GET     |  ------------------------------                                   |
+| add menu            | api/v1/menu            |  POST    | food_title, description, price, status                            |
+| user login          | api/v1/auth/login      |  POST    | email, password                                                   |         |                     |                        |          |                                                                   |
+| user history for    | api/v1/users/orders    |  GET     |  --------------------------                                       |
+| orders              |                        |          |                                                                   |
 	
 ### How to run the Tests:
 
@@ -60,6 +65,6 @@ https://ahmad-fast-food-fast.herokuapp.com/api/v1/orders
 ```
  using nosetest  in open the terminal,activate virtual enviroment in the fast-foods directory and enter:
  ```
- $ nosetests --with-coverage --cover-tests
+ $ pytest --cov=app
  ```
 
