@@ -65,15 +65,7 @@ class AdminTest(BaseTest):
 
     def test_delete_user(self):
         token = self.return_admin_token()
-        data = {
-           "first_name":"ahmed",
-	       "last_name":"kyakus",
-	       "email":"ahmed@outlook.com",
-	       "password":"123456",
-	       "role": "user"
-        }
-        self.app1.post('/api/v1/users/registration', content_type="application/json", data=json.dumps(data))
-
+       
         data = {
            "first_name":"ahmd",
 	       "last_name":"kyaku",
