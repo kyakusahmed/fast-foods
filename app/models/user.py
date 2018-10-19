@@ -53,21 +53,21 @@ class User(DatabaseConnection):
             self.cursor.execute(command)
             return "order is placed"
 
-    def find_user(self, user_id):
-        command = """
-        SELECT * from users WHERE user_id ={}
-        """.format(user_id)
-        self.cursor.execute(command)
-        data = self.cursor.fetchone()
-        return data
+    # def find_user(self, user_id):
+    #     command = """
+    #     SELECT * from users WHERE user_id ={}
+    #     """.format(user_id)
+    #     self.cursor.execute(command)
+    #     data = self.cursor.fetchone()
+    #     return data
 
-    def find_user_by_email(self, email):
-        command = """
-        SELECT * from users WHERE email ={}
-        """.format(email)
-        self.cursor.execute(command)
-        data = self.cursor.fetchone()
-        return data
+    # def find_user_by_email(self, email):
+    #     command = """
+    #     SELECT * from users WHERE email ={}
+    #     """.format(email)
+    #     self.cursor.execute(command)
+    #     data = self.cursor.fetchone()
+    #     return data
 
    
         

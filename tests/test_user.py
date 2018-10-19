@@ -1,20 +1,8 @@
-import unittest
 import json
-from app.models.views import app2
 from .base_tests import BaseTest
 
-BASE_URL = "/api/v1/"
-
-
 class UserTest(BaseTest):
-
-    def setUp(self):
-        self.app1 = app2.test_client()
-        self.app1.testing = True
-        self.basetest = BaseTest()
-        self.base_url = BASE_URL
-
-       
+    
     def test_registration_successful(self):
         data = {
            "first_name":"yusuf",
@@ -59,16 +47,9 @@ class UserTest(BaseTest):
 
     def test_view_user_history(self):
         token = self.return_user_token() 
-        data = {
-            "food_title": "burger",
-            "food_description": "banns",
-            "price":"2000",
-            "status":"pending"
-        }
-
-        self.app1.post('/api/v1/menu',content_type="application/json", data=json.dumps(data))
         response =self.app1.get('/api/v1/menu', headers={"Authorization":"Bearer " + token}) 
         assert response.status_code == 200
+        
           
 
     def test_add_food_to_menu_user_token(self):

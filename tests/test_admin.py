@@ -1,19 +1,7 @@
-import unittest
 import json
-from app.models.views import app2
 from .base_tests import BaseTest
 
-BASE_URL = "/api/v1/"
-
-
 class AdminTest(BaseTest):
-
-    def setUp(self):
-        self.app1 = app2.test_client()
-        self.app1.testing = True
-        self.basetest = BaseTest()
-        self.base_url = BASE_URL
-
        
     def test_registration_successful(self):
         data = {
@@ -25,6 +13,7 @@ class AdminTest(BaseTest):
         }
         response = self.app1.post('/api/v1/users/registration', content_type="application/json", data=json.dumps(data))
         self.assertEqual(response.status_code, 201)
+        
 
     def test_login(self):
         data = {
@@ -44,7 +33,7 @@ class AdminTest(BaseTest):
         self.assertEqual(result.status_code, 200)
         self.assertEqual(json.loads(result.data)["msg"], "Login successful")
 
-    def test_email_not_registered(self):
+    def test_invalid_email_login(self):
         data = {
            "first_name":"ahmed",
 	       "last_name":"kyakus",
@@ -55,12 +44,12 @@ class AdminTest(BaseTest):
         self.app1.post('/api/v1/users/registration', content_type = "application/json", data=json.dumps(data))
      
         data = {
-            "email": "omo@outlook.com",
+            "email": "@outlook.com",
             "password": "123456"
         }
         result = self.app1.post('/api/v1/users/login', content_type = "application/json", data=json.dumps(data))
-        self.assertEqual(result.status_code, 406)
-        self.assertEqual(json.loads(result.data)["msg"], "register first")
+        # self.assertEqual(result.status_code, 406)
+        self.assertEqual(json.loads(result.data)["msg"], "invalid email")
 
     def test_role_doesnt_exist(self):
         data = {
@@ -107,15 +96,6 @@ class AdminTest(BaseTest):
     def test_get_all_users(self):
         token = self.return_admin_token()
         data = {
-           "first_name":"ahmed",
-	       "last_name":"kyakus",
-	       "email":"ahmed@outlook.com",
-	       "password":"123456",
-	       "role": "user"
-        }
-        self.app1.post('/api/v1/users/registration', content_type="application/json", data=json.dumps(data))
-
-        data = {
            "first_name":"ahmd",
 	       "last_name":"kyaku",
 	       "email":"ahmd@outlook.com",
@@ -129,7 +109,7 @@ class AdminTest(BaseTest):
         }
         self.app1.post('/api/v1/users/login', content_type = "application/json", data=json.dumps(data))
         response = self.app1.get('/api/v1/users', headers={"Authorization": "Bearer " + token})
-        data = json.loads(response.get_data(as_text=True))
+        data = json.loads(response.get_data())
         self.assertEqual(response.status_code, 200)
         self.assertIsInstance(json.loads(response.data)['users'], list)
 
@@ -199,7 +179,7 @@ class AdminTest(BaseTest):
 
     
 
-    def test_add_food_to_menu_admin_token(self):
+    def test_add_food_to_menu_with_admin_token(self):
         token = self.return_admin_token()
         data = {
             "food_title":"maunches",
@@ -209,20 +189,17 @@ class AdminTest(BaseTest):
             }
         response = self.app1.post("/api/v1/menu", headers={"Authorization": "Bearer " + token}, json=data)
         self.assertEqual(response.status_code, 201)
-        assert json.loads(response.data)['menu'] == "Data Inserted Successfully"   
+        assert json.loads(response.data)['menu'] == "Data Inserted Successfully"
+    
+        # response = self.app1.post("/api/v1/menu", headers={"Authorization": "Bearer " + token}, json=data)
+        # self.assertEqual(response.status_code, 201)
+        # assert json.loads(response.data)['menu'] == "Data Inserted Successfully"   
 
 
     def test_get_menu(self):
         token = self.return_admin_token()
-        data = {
-            "food_title":"maunches",
-            "description":"banns plus creamy biscuits",
-            "price":"500k",
-            "status":"pending"
-            }
-        self.app1.post("/api/v1/menu", headers={"Authorization": "Bearer " + token}, json=data)
-        response =self.app1.get('/api/v1/menu', headers={"Authorization":"Bearer " + token})
-        self.assertEqual(response.status_code, 200)
+        response = self.app1.get("/api/v1/menu", headers={"Authorization": "Bearer " + token})
+        assert response.status_code == 200
         self.assertIsInstance(json.loads(response.data)['menu'], list)
 
     def test_update_status(self):

@@ -13,12 +13,8 @@ class BaseTest(unittest.TestCase):
 
     def setUp(self):
         self.migration = Migration()
-        # self.tables.create_tables()
         self.base_url = BASE_URL
         self.app1 = app2.test_client()
-
-    # def tearDown(self):
-    #     self.migration.drop_tables()
 
     def return_admin_token(self):
         """Return admin token."""

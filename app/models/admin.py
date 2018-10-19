@@ -52,6 +52,16 @@ class Admin(DatabaseConnection):
         self.cursor.execute(command)
         return self.cursor.fetchall()
 
+    def delete_user(self, user_id):
+        try:
+            command = """
+            DELETE from users WHERE user_id = {}
+            """.format(user_id)
+            self.cursor.execute(command)
+            return  "data deleted"
+        except Exception as ex:
+            return "failed {}".format(ex)    
+
 
 
 
