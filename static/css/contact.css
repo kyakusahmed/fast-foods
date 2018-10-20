@@ -1,0 +1,121 @@
+* {box-sizing: border-box;}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/images.jpg);
+  background-size: contain;
+}
+
+.topnav h1{
+  float: left;
+  margin: auto;
+  padding: 10px;
+  text-transform: capitalize;
+  color: green;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
+.topnav a {
+  float: right;
+  display: block;
+  color: green;
+  text-align: center;
+  padding:  22px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+
+}
+
+.topnav a.active {
+  background-color: #008000;
+  color: white;
+}
+
+.topnav .search-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.header2{
+  text-align: center;
+  font-size: 25px;
+  color: white;
+
+
+}
+
+.container{
+  background-color: rgb(red, green, blue);
+  width: 50%;
+  margin: 0 auto ;
+}
+.container .group{
+  padding: 10px;
+}
+
+input, select, textarea {
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    padding: 10px;
+    width: 100%;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 50%;
+    margin: 0 auto;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: light;
+    padding: 20px;
+    color: white;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 620px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+ 
+}

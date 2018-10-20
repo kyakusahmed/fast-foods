@@ -1,0 +1,194 @@
+* {box-sizing: border-box;}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/chicken-shawarma.jpg);
+  background-image: cover;
+  background-size: contain;
+  width: 100%;
+  min-height: 90vh;
+}
+.topnav h1{
+  float: left;
+  margin: auto;
+  padding: 10px;
+  text-transform: capitalize;
+  color: #008000;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
+.topnav a {
+  float: right;
+  display: block;
+  color: green;
+  text-align: center;
+  padding:  22px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #008000;
+  color: white;
+}
+
+.topnav .search-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.topnav .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: rgb(183, 252, 183);
+}
+
+.main-content{
+  min-height: 80vh;
+}
+
+.content {
+  margin-bottom: 20px;
+  min-height: 80vh;
+  background-color: transparent;
+  color: white;
+}
+
+.foods h4, .foods h6 {
+  text-align: center;
+  color: white;
+}
+.foods .menu {
+  border-bottom: 1px double cream;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #ffffff;
+  color: #008000;
+}
+.food-item {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  border-bottom: 3px dotted #ffffff;
+}
+
+.food-image {
+  flex: 1;
+}
+
+.food-image img {
+  margin: 0;
+  height: 80px;
+  width: 100px;
+}
+
+.content1 {
+  flex: 3;
+}
+.content1 .title {
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 5px;
+  font-size: 14px;
+
+}
+
+.content1 .title .price {
+  background: #008000;
+  color: #fff;
+  border-radius: 5px;
+  padding: 2px;
+  font-size: 12px;
+}
+
+.food-item .food-button .button {
+  display: inline-block;
+  margin-top: auto;
+  padding: 5px;
+  color: #d35400;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+  background: transparent;
+}
+
+.food-item .food-button .pending {
+  background: #90ee90 !important;
+  color: #fff;
+  border: 1px solid #90ee90;
+}
+
+.food-item .food-button .completed {
+  background: #27ae60 !important;
+  border: 1px solid #27ae60;
+  color: #fff;
+}
+
+.food-item .food-button .declined {
+  background: #c0392b !important;
+  border: 1px solid #c0392b;
+  color: #fff;
+}
+
+.food-item .date {
+  color: #ffffff;
+  font-size: 12px;
+}
+
+.foods2 h4, .foods h6 {
+  text-align: center;
+  color: white;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc; 
+  }
+  .foods, .foods2, .foods .button {
+    display: block;
+  }
+}
+.foods{
+  float: none;
+  margin: 0px;
+  width: auto;
+  padding: 10px;
+}

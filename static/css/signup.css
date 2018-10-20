@@ -1,0 +1,73 @@
+* {box-sizing: border-box;}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url(../images/images.jpg) ;
+  background-size: cover;
+  filter: brightness(1);  
+}
+
+.login-page{
+    width: 360px;
+    padding: 5%;
+    margin: auto;
+
+}
+
+.main-content{
+    min-height: 80vh;
+}
+
+.form{
+    position: relative;
+    z-index: 1;
+    background: #ffffff;
+    width: 360px;
+    margin: 0 auto ;
+    padding: 45px;
+    text-align: center;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 150px;
+
+}
+.form input{
+    font-family: "roboto",sans-serif;
+    outline: 1;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    margin-left: 0px;
+}
+.form .button{
+    font-family: "roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #008000;
+    width: 100%;
+    padding: 10px;
+    color: #FFFFFF;
+    font-size: 15PX;
+    cursor: pointer;
+    border: 1px solid green;
+    margin-top: 10px;
+}
+
+.form .button:hover,.form button:active{
+    background-color: #43A047;
+}
+.form .message{
+    margin: 15px;
+    color: green;
+}
+
+@media screen and (max-width: 620px) {
+    .login-page, .SignUp, .input[type=submit] {
+      width: auto;
+      margin-top: 0;
+    }
+  }
