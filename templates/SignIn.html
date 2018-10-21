@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>sign in</title>
-<link rel="stylesheet" type="text/css" href="../static/css/signin.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/signin.css') }}">
 <meta charset="utf-8"> 
 <META name="keywords" lang="en-us" content="fast foods">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,6 +19,8 @@
 </form>
 </div>
 </div>
+
+<script src="{{ url_for('static', filename='js/user.js') }}"></script>
 
 </body>
 </html>

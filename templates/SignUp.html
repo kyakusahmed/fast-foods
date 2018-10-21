@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>fAST FOODS</title>
-<link rel="stylesheet" type="text/css" href="../static/css/signup.css">
+<title>FAST FOODS</title>
+<link rel="stylesheet" type="text/css" href= "{{ url_for('static', filename='css/signup.css') }}">
 <meta charset="utf-8"> 
+<meta name="HandheldFriendly" content="true">
 <META name="keywords" lang="en-us" content="fast foods">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -24,14 +25,7 @@
 </div>
 </div>
 
-<script>
-function validateForm() {
-    var x = document.forms["Myform"]["username"].value;
-    if (x == "") {
-        alert("Name must be filled out");
-        return false;
-    }
-}
-</script>
+<script src="{{ url_for('static', filename='js/user.js') }}"></script>
 
 </body>
+</html>
