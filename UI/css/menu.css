@@ -3,8 +3,8 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/images.jpg);
-  background-image: cover;
+  background-color: cream; 
+  
 }
 
 .topnav h1{
@@ -12,18 +12,18 @@ body {
   margin: auto;
   padding: 10px;
   text-transform: capitalize;
-  color: green;
+  color: white;
 }
 
 .topnav {
   overflow: hidden;
-  background-color: #e9e9e9;
+  background-color: #008000;
 }
 
 .topnav a {
   float: right;
   display: block;
-  color: green;
+  color: white;
   text-align: center;
   padding:  22px;
   text-decoration: none;
@@ -36,8 +36,8 @@ body {
 }
 
 .topnav a.active {
-  background-color: #008000;
-  color: white;
+  background-color: white;
+  color: green;
 }
 
 .topnav .search-container {
@@ -76,7 +76,7 @@ body {
   width: 45%;
   margin: auto;
   box-sizing: border-box;
-  color: #ffffff;
+  color: green;
   float: left;
   padding-left: 20px;
 
@@ -87,7 +87,7 @@ body {
   width: 50%;
   margin: auto;
   box-sizing: border-box;
-  color: #ffffff;
+  color: green;
   float: right;
   padding-right: 40px;
 
@@ -96,14 +96,14 @@ body {
 
 .orders h4, .orders h6 {
   text-align: center;
-  color: white;
+  color: green;
 }
 .orders .menu {
-  border-bottom: 1px double cream;
+  border-bottom: 1px double green;
   padding: 10px;
   margin-bottom: 10px;
-  background-color: #ffffff;
-  color: #008000;
+  background-color:  green;
+  color: white;
 }
 .order-item {
   margin: 10px 0;
@@ -111,7 +111,7 @@ body {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: flex-start;
-  border-bottom: 3px dotted #ffffff;
+  border-bottom: 1px dotted green;
 }
 
 .order-image {
@@ -129,7 +129,7 @@ body {
 }
 .content1 .title {
   font-weight: bold;
-  color: #ffffff;
+  color: green;
   margin-bottom: 5px;
   font-size: 14px;
 
@@ -181,7 +181,7 @@ body {
   color: white;
 }
 .orders2 .menu {
-  border-bottom: 1px double cream;
+  border-bottom: 1px dotted green;
   padding: 10px;
   margin-bottom: 10px;
   background-color: #ffffff;
@@ -193,7 +193,7 @@ body {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: flex-start;
-  border-bottom: 3px dotted #ffffff;
+  border-bottom: 1px dotted green;
 }
 
 @media screen and (max-width: 620px) {

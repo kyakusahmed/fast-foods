@@ -10,83 +10,34 @@
 <body>
 
 <div class="topnav">
-  <h1>chucks fast foods</h1>
-  <a href="SignUp.html">SignUp</a>
-  <a href="SignIn.html">SignIn</a>  
-  <a href="contact.html">ContactUs</a>
-  <a href="admin/Admin-In.html">Admin</a>
-  <a class="active" href="#home">Home</a>
-  
-  <div class="search-container">
-    <form action="/action_page.php">
-      <input type="text" placeholder="Search.." name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
-  </div>
+<h1>chucks fast foods</h1>
+<a href="contact.html">ContactUs</a>
+<a href="admin/Admin-In.html">Admin</a>
+<a class="active" href="#home">Home</a>
 </div>
+
+<div class="heading">
+
+</div>
+
+
 <div class="main-content">
-
-<div class="slideshow-container">
-
-<div class="mySlides fade">
-  <div class="numbertext">1 / 3</div>
-  <img src="images/fff.jpg" style="width:100%">
-  <div class="text">Caption Text</div>
+<div class = "login-page">
+<div class = "form">
+<div class = "header">
+<h1>Fast-Foods-Fast</h1>
+<p>A food delivery service app</P>
 </div>
-
-<div class="mySlides fade">
-  <div class="numbertext">2 / 3</div>
-  <img src="images/chicken-shawarma.jpg" style="width:100%">
-  <div class="text">Caption Two</div>
+<form action="admin.html" class="login-form">
+<input type="email" placeholder="email" required/>
+<input type="text" placeholder="password" required/>
+<a href = "menu.html" class="button">login</a>
+<P class = "message">Not registered?<a href = "SignUp.html">register</a></p>
+</form>
 </div>
-
-<div class="mySlides fade">
-  <div class="numbertext">3 / 3</div>
-  <img src= "images/fff2.jpg" style="width:100%">
-  <div class="text">Caption Three</div>
 </div>
-
 </div>
-
-
-<div style="text-align:center">
-  <span class="dot"></span> 
-  <span class="dot"></span> 
-  <span class="dot"></span> 
-</div>
-
-<div class="details">
-  <h2>Fast-Food-Fast</h2>
-  <p>Food delivery service app for a restaurant</p>
-</div>
-
-</div>
-<div class = "footer">
-<p>copy rights 2018</p>
-</div>
-
-<script>
-var slideIndex = 0;
-showSlides();
-
-function showSlides() {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    var dots = document.getElementsByClassName("dot");
-    for (i = 0; i < slides.length; i++) {
-       slides[i].style.display = "none";  
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}    
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex-1].style.display = "block";  
-    dots[slideIndex-1].className += " active";
-    setTimeout(showSlides, 5000); // Change image every 2 seconds
-}
-</script>
-
 
 </body>
 </html>
+ 
