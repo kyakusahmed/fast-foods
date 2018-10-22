@@ -65,13 +65,11 @@ body {
 .topnav .search-container button:hover {
   background: rgb(183, 252, 183);
 }
-
 .content {
   margin: 0px 100px;
   min-height: 80vh;
-  background-color: #e0ffff);
+  background-color: #ffffff;
   padding: 45px;
-  
 }
 .orders2 {
   width: 50%;
