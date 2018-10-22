@@ -67,22 +67,12 @@ body {
 }
 
 .content {
-  margin-bottom: 20px;
+  margin: 0px 100px;
   min-height: 80vh;
-  background-color: transparent;
+  background-color: #e0ffff);
+  padding: 45px;
+  
 }
-
-.orders {
-  width: 45%;
-  margin: auto;
-  box-sizing: border-box;
-  color: green;
-  float: left;
-  padding-left: 20px;
-
-
-}
-
 .orders2 {
   width: 50%;
   margin: auto;
@@ -90,13 +80,11 @@ body {
   color: green;
   float: right;
   padding-right: 40px;
-
-
 }
 
 .orders h4, .orders h6 {
   text-align: center;
-  color: green;
+  color: white;
 }
 .orders .menu {
   border-bottom: 1px double green;
@@ -104,6 +92,7 @@ body {
   margin-bottom: 10px;
   background-color:  green;
   color: white;
+  text-align: center;
 }
 .order-item {
   margin: 10px 0;
@@ -111,7 +100,7 @@ body {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: flex-start;
-  border-bottom: 1px dotted green;
+  border-bottom: 2px solid green;
 }
 
 .order-image {
@@ -172,7 +161,7 @@ body {
   color: #fff;
 }
 .order-item .date {
-  color: #ffffff;
+  color: green;
   font-size: 12px;
 }
 
@@ -181,7 +170,7 @@ body {
   color: white;
 }
 .orders2 .menu {
-  border-bottom: 1px dotted green;
+  border-bottom: 3px dotted green;
   padding: 10px;
   margin-bottom: 10px;
   background-color: #ffffff;
@@ -193,7 +182,7 @@ body {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: flex-start;
-  border-bottom: 1px dotted green;
+  border-bottom: 2px solid green;
 }
 
 @media screen and (max-width: 620px) {

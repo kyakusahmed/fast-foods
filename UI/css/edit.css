@@ -70,14 +70,6 @@ body {
   background: rgb(183, 252, 183);
 }
 
-.food .button1 .add{
-  background: #90ee90;
-  border: 1px solid #008000;
-  color: #fff;
-  border-radius: 5px;
-
-}
-
 .flex-container{
   display: flex;
   justify-content: center;
