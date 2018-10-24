@@ -61,13 +61,13 @@ class User(DatabaseConnection):
         data = self.cursor.fetchone()
         return data
 
-    # def find_user_by_email(self, email):
-    #     command = """
-    #     SELECT * from users WHERE email ={}
-    #     """.format(email)
-    #     self.cursor.execute(command)
-    #     data = self.cursor.fetchone()
-    #     return data
+    def find_user_by_email(self, email):
+        command = """
+        SELECT * from users WHERE email ={}
+        """.format(email)
+        self.cursor.execute(command)
+        data = self.cursor.fetchone()
+        return data
 
    
         
