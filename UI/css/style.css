@@ -31,7 +31,7 @@ body {
   color: black;
 }
 .topnav a.active {
-  background-color: #d3d3d3;
+  background-color: #ffffff;
   color: green;
 }
 .main-content{
@@ -330,7 +330,6 @@ input[type=submit]:hover {
   justify-content: center;
   margin-top: 80px;
   width: auto;
-
 }
 .orders{
   border: 3px solid green;
@@ -355,7 +354,6 @@ input[type=submit]:hover {
   margin-bottom: 5px;
   font-size: 14px;
 }
-
 .content1 .title .price {
   background: #008000;
   color: #fff;
@@ -373,14 +371,12 @@ input[type=submit]:hover {
   display: inline-block;
   background: transparent;
 }
-
 .food .button .edit {
   background: green;
   color: #fff;
   border: 1px solid green;
   border-radius: 5px;
 }
-
 .food .button .delete {
   background: #ff0000;
   border: 1px solid #ff0000;
@@ -421,7 +417,6 @@ input[type=submit]:hover {
   padding: 6px;
   width: 100%;
 }
-
 .add-food .submit-button {
   margin:  10px auto;
 }
