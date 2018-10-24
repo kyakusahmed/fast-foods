@@ -1,14 +1,10 @@
-
-
 * {box-sizing: border-box;}
-
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   width: 100%;
   min-height: 100vh;
 }
-
 .topnav {
   overflow: hidden;
   background-color:green;
@@ -38,7 +34,6 @@ body {
   background-color: #d3d3d3;
   color: green;
 }
-
 .main-content{
   min-height: 30vh;
 }
@@ -87,7 +82,6 @@ body {
   margin-top: 10px;
 
 }
-
 .form .button:hover,.form button:active{
   background-color: lightgray;
 }
@@ -95,20 +89,15 @@ body {
   margin: 15px;
   color: #ffffff;
 }
-
 @media screen and (max-width: 620px) {
   .login-page, .SignUp, .input[type=submit] {
     width: auto;
     margin-top: 0;
   }
 }
-
-
-
 @media only screen and (max-width: 300px) {
   .text {font-size: 11px}
 }
-
 .footer {
     height: 60px;
     position: relative;
@@ -332,5 +321,112 @@ input[type=submit]:hover {
   .topnav input[type=text] {
     border: 1px solid #ccc;  
   }
- 
 }
+
+/* ------------------------------------------------------edit-------------------------------- */
+
+.flex-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+  width: auto;
+
+}
+.orders{
+  border: 3px solid green;
+  width: 1200px;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.food {
+  margin: 10px 0;
+  justify-content: space-between;
+  padding: 20px;
+  color:  green;
+}
+.image {
+  flex: 1;
+}
+.content1 .title {
+  font-weight: bold;
+  color: green;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.content1 .title .price {
+  background: #008000;
+  color: #fff;
+  border-radius: 5px;
+  padding: 2px;
+  font-size: 12px;
+}
+.food .button  {
+  margin-top: auto;
+  padding: 5px;
+  color: #d35400;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+  display: inline-block;
+  background: transparent;
+}
+
+.food .button .edit {
+  background: green;
+  color: #fff;
+  border: 1px solid green;
+  border-radius: 5px;
+}
+
+.food .button .delete {
+  background: #ff0000;
+  border: 1px solid #ff0000;
+  color: #fff;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 620px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button, .orders {
+    
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}
+
+.add-food {
+  background-color:#ccc;
+  padding: 10px;
+  border: 1px solid #008000;
+}
+.add-food .input-field {
+  margin-top: 5px;
+}
+.add-food .input-field label {
+  display: block;
+}
+.add-food .input-field input, .add-food .input-field textarea {
+  border: 1px solid  green;
+  padding: 6px;
+  width: 100%;
+}
+
+.add-food .submit-button {
+  margin:  10px auto;
+}
+.add-food .submit-button .button {
+  padding: 10px;
+  background: #008000;
+  color: #fff;
+  border: none;}
