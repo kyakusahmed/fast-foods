@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from flasgger import Swagger, swag_from
 from .user import User
 from .admin import Admin
@@ -16,9 +16,70 @@ user = User()
 admin = Admin()
 
 
+@app2.route('/users/registration', methods=['GET'])
+def register():
+    """Render user registration page"""
+    return render_template('SignUp.html')
+
+
+@app2.route('/users/login', methods=['GET'])
+def now_login():
+    """Render user login page."""
+    return render_template('SignIn.html')
+
+
+@app2.route('/admin/menu', methods=['GET'])
+def add_orders():
+    """Render admin add menu page."""
+    return render_template('menu.html')   
+
+
+@app2.route('/contact-us', methods=['GET'])
+def contact_us():
+    """Render admin add menu page."""
+    return render_template('contact.html') 
+
+@app2.route('/index', methods=['GET'])
+def index_page():
+    """Render admin add menu page."""
+    return render_template('index.html') 
+
+
+@app2.route('/edit', methods=['GET'])
+def edit_page():
+    """Render admin add menu page."""
+    return render_template('/admin/edit.html') 
+
+@app2.route('/add', methods=['GET'])
+def add_page():
+    """Render admin add menu page."""
+    return render_template('/admin/add.html')     
+
+@app2.route('/admin', methods=['GET'])
+def admin_page():
+    """Render admin add menu page."""
+    return render_template('/admin/admin.html')  
+
+@app2.route('/a-signup', methods=['GET'])
+def admin_signup():
+    """Render admin add menu page."""
+    return render_template('/admin/admin-signup.html') 
+
+@app2.route('/a-signin', methods=['GET'])
+def admin_signin():
+    """Render admin add menu page."""
+    return render_template('/admin/admin-in.html')    
+
+
+
+
+
+
+
 @app2.route('/api/v1/users/registration', methods=['POST'])
 @swag_from("../docs/signup&signin/signup.yaml")
 def registration():
+
     data = request.get_json()
     required = ("first_name", "last_name", 'email', 'password', 'role')
     if not set(required).issubset(set(data)):

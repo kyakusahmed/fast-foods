@@ -28,7 +28,7 @@ class Migration(DatabaseConnection):
             USER_ID SERIAL PRIMARY KEY,
             FIRST_NAME VARCHAR(50) NOT NULL,
             LAST_NAME VARCHAR(50) NOT NULL,
-            EMAIL VARCHAR(50),
+            EMAIL VARCHAR(50) UNIQUE,
             PASSWORD VARCHAR(50),
             ROLE VARCHAR(25) NOT NULL,
             CREATED_AT timestamp(6) without time zone
