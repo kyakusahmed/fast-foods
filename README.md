@@ -8,6 +8,10 @@ Food delivery service app for a restaurant
 
 [GH-PAGES](https://kyakusahmed.github.io/fast-foods/UI/)
 
+[documentation](https://ahmad-fast-food-fast.herokuapp.com/apidocs/)
+
+[signIn-page](https://ahmad-fast-food-fast.herokuapp.com/users/login)
+
 ### How to run the app
 
 
