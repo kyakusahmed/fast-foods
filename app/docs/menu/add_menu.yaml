@@ -1,0 +1,42 @@
+Add food to menu
+---
+tags:
+  - Orders
+parameters:
+  - name: Authorization
+    in: header
+    type: string
+    description: JWT token authorization
+    required: true
+    example: "Bearer "
+  - in: body
+    name: body
+    type: object
+    description: This endpoint is for users to place orders
+
+    schema:
+      required:
+        - food_title
+        - description
+        - price
+        - status
+      type: object
+      properties:
+        food_title:
+          type: string
+          example: liver_&_flies
+        description:
+          type: string
+          example: fried_liver_and_chips
+        price: 
+          type: string
+          example: 25000k
+        status:
+          type: string
+          example: pending  
+responses:
+  200:
+    description: The user provides food_title, description, price, status
+
+  401:
+    description: unauthorised access
